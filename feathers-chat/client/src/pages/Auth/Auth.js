@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Container, 
         Row, 
         Col, 
@@ -11,10 +11,23 @@ import {Container,
 import UserField from '../../components/Form/UserField';
 import PassField from '../../components/Form/PassField';
 
+import { AUTHLOGIN } from '../../constants';
 
-import './Login.scss';
+import './Auth.scss';
 
-const Login = props => {
+const Auth = props => {
+
+  const [values, setValues] = useState({
+    username:'',
+    password: '',
+  });
+  const { route: { name }} = props; 
+
+  const handleOnChange = (value) => {
+    setValues(prevValues => ({
+      ...prevValues, ...value
+    }))
+  }
 
   return (
     <Container fluid className="fc_container">
@@ -23,12 +36,14 @@ const Login = props => {
           <Card className="fc_container-card">
             <CardBody>
               <Form>
-                <UserField />
-                <PassField />
+                <UserField value={values.username} handleOnChange={handleOnChange}/>
+                <PassField value={values.password} handleOnChange={handleOnChange}/>
               </Form>
             </CardBody>
             <CardFooter className="fc_container-card--footer">
-              <Button>Login</Button>
+              <Button>
+                { name === AUTHLOGIN ? 'Login' : 'Signup'}
+              </Button>
             </CardFooter>
           </Card>
         </Col>
@@ -37,4 +52,4 @@ const Login = props => {
   )
 }
 
-export default Login;
+export default Auth;
