@@ -1,18 +1,20 @@
 import React from 'react';
 
 //  constants
-import { LOGIN } from './constants';
+import { AUTH, AUTHSIGNUP, AUTHLOGIN } from './constants';
 
 
-import Login from './pages/Login';
+import Auth from './pages/Auth';
 
 const App = props => {
 
   const { route: { name }} = props;
 
   switch (name) {
-    case LOGIN:
-      return <Login {...props}/>
+    case AUTH:
+    case AUTHSIGNUP:
+    case AUTHLOGIN:
+      return <Auth {...props}/>
     default:
       break;
   }

@@ -6,10 +6,10 @@ import routes from './routes'
 
 export default function configureRouter() {
     const router = createRouter(routes, {
-        defaultRoute: 'login',
+        defaultRoute: 'auth',
         allowNotFound: true
     });
-    // router.setRootPath("/")
+    
     router.usePlugin(loggerPlugin);
     router.usePlugin(browserPlugin({
         useHash: false,

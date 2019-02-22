@@ -5,6 +5,14 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 const UserField = props => {
 
+  const { value, handleOnChange} = props;
+
+  const handleChange = e => {
+    handleOnChange({
+      [e.target.name]: e.target.value
+    })
+  }
+
   return (
     <FormGroup>
       <label htmlFor="#username">Username</label>
@@ -14,7 +22,12 @@ const UserField = props => {
             <FontAwesomeIcon icon={faUser}/>
           </InputGroupText>
         </InputGroupAddon>
-        <FormInput id="#username" placeholder="Username" />
+        <FormInput 
+          onChange={handleChange}
+          name="username"
+          id="#username" 
+          placeholder="Username" 
+          value={value}/>
       </InputGroup>
     </FormGroup>
   )
