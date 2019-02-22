@@ -16,18 +16,18 @@ services:
     networks: 
       - "chat"
 
-  client:
-    build: ./client/
-    volumes:
-      - type: bind
-        source: ./client/src
-        target: /app/src
-    ports:
-      - "3000:3000"
-    depends_on:
-      - "web"
-    networks: 
-      - "chat"
+  # client:
+  #   build: ./client/
+  #   volumes:
+  #     - type: bind
+  #       source: ./client/src
+  #       target: /app/src
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - "web"
+  #   networks: 
+  #     - "chat"
 
   db:
     image: postgres
