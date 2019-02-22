@@ -6,7 +6,7 @@ import routes from './routes'
 
 export default function configureRouter() {
     const router = createRouter(routes, {
-        defaultRoute: 'auth',
+        defaultRoute: 'auth.login',
         allowNotFound: true
     });
     
