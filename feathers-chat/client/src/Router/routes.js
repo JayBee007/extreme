@@ -1,3 +1,4 @@
 export default [
-    { name: 'login', path: '/' },
+    { name: 'login', path: '/login' },
+    { name: 'chat', path: '/chat' }
 ]
