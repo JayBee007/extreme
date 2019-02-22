@@ -1,14 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
+
+//  constants
+import { LOGIN } from './constants';
 
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-            Learn React
-      </div>
-    );
+import Login from './pages/Login';
+
+const App = props => {
+
+  const { route: { name }} = props;
+
+  switch (name) {
+    case LOGIN:
+      return <Login {...props}/>
+    default:
+      break;
   }
+  
+
 }
 
 export default App;
