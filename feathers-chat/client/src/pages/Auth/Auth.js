@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { useRouter } from 'react-router5';
 import {Container, 
         Row, 
         Col, 
@@ -11,20 +12,27 @@ import UserField from '../../components/Form/UserField';
 import PassField from '../../components/Form/PassField';
 import EmailField from '../../components/Form/EmailField';
 
-import { AUTHLOGIN, AUTHSIGNUP} from '../../constants';
+import { AUTHLOGIN, AUTHSIGNUP} from '../../appConstants';
 
 import client from '../../client';
+
+import AuthContext from '../../Providers/Contexts/auth.context'
 
 import './Auth.scss';
 
 const Auth = props => {
+
+  const { route: { name }} = props; 
 
   const [values, setValues] = useState({
     username:'',
     password: '',
     email: '',
   });
-  const { route: { name }} = props; 
+
+  const authState = useContext(AuthContext);
+
+  const router = useRouter();
 
   const handleOnChange = (value) => {
     setValues(prevValues => ({
@@ -36,27 +44,30 @@ const Auth = props => {
     e.preventDefault();
     
     const { username, email, password } = values;
-    console.table({username,email,password, name})
+    
     if(email === '' || password === '' ) return;
     
-    const login = () => {
-      console.log('login')
-      return client.authenticate({
+    const login = async () => {
+      
+      await client.authenticate({
         strategy: 'local',
         email,
         password
+      }).then(res =>  {
+        authState.login();
+        router.navigate('chat');
       })
     }
 
     if(name === AUTHLOGIN ) {
-      console.log('authlogin')
-      login().then(() => console.log('logged'));
+      login();
     
     }else if (name === AUTHSIGNUP) {
       if(username === '') return;
       const users = client.service('users');
       return users.create({username, email, password})
-        .then(() => login());
+        .then(() => login())
+        .catch(err => console.log(err));
     }
   }
 
