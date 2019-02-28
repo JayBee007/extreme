@@ -4,6 +4,8 @@ import { RouterProvider, Route } from 'react-router5'
 
 import createRouter from './Router/router';
 
+import AuthProvider from './Providers/AuthProvider';
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "shards-ui/dist/css/shards.min.css";
 import "./index.scss";
@@ -16,9 +18,11 @@ const router = createRouter()
 
 router.start(() => {
     ReactDOM.render((
-        <RouterProvider router={router}>
-            <Route>{({ route }) => <App route={route} />}</Route>
-        </RouterProvider>
+        <AuthProvider>
+            <RouterProvider router={router}>
+                <Route>{({ route }) => <App route={route} />}</Route>
+            </RouterProvider>
+        </AuthProvider>
     ), document.getElementById('root'))
 });
 
