@@ -7,6 +7,10 @@ export const getAuthToken = () => {
   }
 }
 
+export const removeAuthToken = () => {
+  window.localStorage.clear();
+}
+
 export const isAuthenticated = () => (toState, fromState)=> {
 
   return new Promise((resolve,reject) => {

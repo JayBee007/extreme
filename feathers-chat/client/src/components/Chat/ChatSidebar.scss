@@ -1,0 +1,47 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  &-user_p {
+    text-align: center;
+  }
+
+  &-user__length {
+    font-weight: 700;
+    color: #26C693;
+  }
+
+  &-btn {
+    margin-top: auto;
+    margin-bottom: 10px;
+  }
+
+  &-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &_item {
+      display: flex;
+      align-items: center;
+      padding-bottom: 15px;
+    }
+
+    &_image {
+      height: 64px;
+      width: 64px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 10px;
+    }
+
+    &_avatar {
+      display: block;
+      height: 100%;
+    }
+
+    &_email {
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
