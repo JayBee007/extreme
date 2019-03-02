@@ -12,11 +12,13 @@
 
   &-row {
     flex-grow: 1;
+    overflow: auto;
   }
 
   &-sidebar {
     display:flex;
     border-right: 1px solid #855a4d;
     justify-content: center;
+    max-height: 100%;
   }
 }

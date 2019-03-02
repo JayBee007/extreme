@@ -5,7 +5,7 @@ import { useRouter } from 'react-router5';
 import client from '../../client';
 import { removeAuthToken } from '../../utils';
 import Navbar from '../../components/Navbar'
-import {ChatSidebar} from '../../components/Chat';
+import {ChatSidebar, ChatWindow} from '../../components/Chat';
 import AuthContext from '../../Providers/Contexts/auth.context';
 
 import './Chat.scss';
@@ -30,7 +30,7 @@ const Chat = props => {
     const users = client.service("users");
     
     client.on('authenticated', async token => {
-        const messageData = await messages.find({ query: { $sort: { createdAt: -1 }, $limit: 2 }});
+        const messageData = await messages.find({ query: { $sort: { createdAt: -1 }, $limit: 100 }});
         const userData = await users.find();
         
         setData({
@@ -67,7 +67,6 @@ const Chat = props => {
     authenticateUser()
     subscribeToEvents()
   },[])
-  
   return (
     <Container
       className="chat"
@@ -81,7 +80,8 @@ const Chat = props => {
           <Col md="4" className="chat-sidebar">
             <ChatSidebar users={data.users} />
           </Col>
-          <Col md="8">
+          <Col md="8" style={{display: 'flex', maxHeight: '100%', paddingRight: 0}}>
+            <ChatWindow messages={data.messages} />
           </Col>
         </Row>
       </Container>
