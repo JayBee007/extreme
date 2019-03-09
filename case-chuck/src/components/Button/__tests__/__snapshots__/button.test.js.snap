@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Component basic render 1`] = `
+<button
+  className="Button-btn-0-1-1"
+  onClick={[Function]}
+  type="button"
+>
+  Button Text
+</button>
+`;
