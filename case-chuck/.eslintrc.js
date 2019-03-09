@@ -30,7 +30,7 @@ module.exports = {
   },
   settings: {
     "import/resolver": {
-      alias: [["_utils", "./src/utils"]]
+      alias: [["_utils", "./src/utils"], ["_components", "./src/components"]]
     }
   }
 };
