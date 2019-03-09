@@ -1,5 +1,11 @@
 import React from "react";
-import { configure } from "@storybook/react";
+import { configure, addDecorator } from "@storybook/react";
+
+import ThemeProvider from "../src/theme/ThemeProvider";
+
+addDecorator(story => {
+  return <ThemeProvider>{story()}</ThemeProvider>;
+});
 
 configure(() => require("./load-stories.js"), module);
 

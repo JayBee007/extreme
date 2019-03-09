@@ -1,8 +1,26 @@
 import React from "react";
+import PropTypes from "prop-types";
+import withStyle from "react-jss";
+
+import { btn } from "./styles";
 
 const Button = props => {
-  const { children } = props;
-  return <button type="button">{children}</button>;
+  const { children, classes, handleClick } = props;
+
+  const clickHandle = () => {
+    handleClick();
+  };
+  return (
+    <button type="button" className={classes.btn} onClick={clickHandle}>
+      {children}
+    </button>
+  );
 };
 
-export default Button;
+Button.propTypes = {
+  children: PropTypes.node.isRequired,
+  classes: PropTypes.object.isRequired,
+  handleClick: PropTypes.func.isRequired
+};
+
+export default withStyle(btn)(Button);

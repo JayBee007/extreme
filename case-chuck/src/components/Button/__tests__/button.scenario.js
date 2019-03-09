@@ -6,6 +6,6 @@ export const name = "button";
 
 export const component = () => (
   <React.Fragment>
-    <Button>Primary</Button>
+    <Button color="green">Primary</Button>
   </React.Fragment>
 );

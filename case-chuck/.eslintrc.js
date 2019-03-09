@@ -20,5 +20,7 @@ module.exports = {
   plugins: ['react', 'flowtype', 'import', 'jsx-a11y'],
   rules: {
     "react/jsx-filename-extension": "off",
+    "react/forbid-prop-types": "off"
+
   },
 };
