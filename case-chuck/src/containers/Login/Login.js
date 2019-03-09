@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { compose } from "redux";
 import withStyle from "react-jss";
 import Proptypes from "prop-types";
 
@@ -7,10 +9,12 @@ import Button from "_components/Button";
 import Icon from "_components/Icon";
 import Close from "_assets/img/close.svg";
 
+import { toggleLoginModal as toggle } from "_store/actions";
+
 import { login } from "./styles";
 
 const Login = props => {
-  const { classes } = props;
+  const { classes, toggleLoginModal } = props;
   const submitHandler = e => {};
   const [formValues, setFormValues] = useState({
     username: "",
@@ -28,7 +32,7 @@ const Login = props => {
   const { username, password } = formValues;
   return (
     <Form submitHandler={submitHandler}>
-      <Icon className={classes.icon}>
+      <Icon className={classes.icon} clickHandler={toggleLoginModal}>
         <Close />
       </Icon>
       <Input
@@ -54,7 +58,14 @@ const Login = props => {
 };
 
 Login.propTypes = {
-  classes: Proptypes.object.isRequired
+  classes: Proptypes.object.isRequired,
+  toggleLoginModal: Proptypes.func.isRequired
 };
 
-export default withStyle(login)(Login);
+export default compose(
+  connect(
+    null,
+    { toggleLoginModal: toggle }
+  ),
+  withStyle(login)
+)(Login);
