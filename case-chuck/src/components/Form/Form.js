@@ -7,7 +7,8 @@ import { form } from "./styles";
 const Form = props => {
   const { submitHandler, children, classes } = props;
 
-  const handleSubmit = () => {
+  const handleSubmit = e => {
+    e.preventDefault();
     submitHandler();
   };
   return (

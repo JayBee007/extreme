@@ -6,10 +6,12 @@ import withStyle from "react-jss";
 import Button from "_components/Button";
 import NavBar from "_components/NavBar";
 import Modal from "_components/Modal";
+import Login from "_containers/Login";
+
 import { modal } from "./styles";
 
 const Navigation = props => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const handleClick = () => {
     setOpen(true);
   };
@@ -18,7 +20,9 @@ const Navigation = props => {
     <React.Fragment>
       <NavBar>
         <NavBar.NavBarRight>
-          <Button handleClick={handleClick}>Login</Button>
+          <Button type="button" handleClick={handleClick}>
+            Login
+          </Button>
         </NavBar.NavBarRight>
       </NavBar>
       <Transition
@@ -34,7 +38,7 @@ const Navigation = props => {
           (prop => (
             <Modal>
               <animated.div className={classes.modal} style={prop}>
-                <div>fadfasdf</div>
+                <Login />
               </animated.div>
             </Modal>
           ))

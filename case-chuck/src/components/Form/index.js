@@ -1,5 +1,4 @@
 import Input from "./Input";
-import UserInput from "./UserInput";
-import PasswordInput from "./PasswordInput";
+import Form from "./Form";
 
-export { Input, UserInput, PasswordInput };
+export { Input, Form };
