@@ -34,7 +34,8 @@ module.exports = {
         ["_utils", "./src/utils"],
         ["_components", "./src/components"],
         ["_containers", "./src/containers"],
-        ["_assets", "./src/assets"]
+        ["_assets", "./src/assets"],
+        ["_store", "./src/store"]
       ]
     }
   }
