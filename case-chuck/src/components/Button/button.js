@@ -7,11 +7,11 @@ import { btn } from "./styles";
 const Button = props => {
   const { children, classes, handleClick } = props;
 
-  const clickHandle = () => {
+  const clickHandler = () => {
     handleClick();
   };
   return (
-    <button type="button" className={classes.btn} onClick={clickHandle}>
+    <button type="button" className={classes.btn} onClick={clickHandler}>
       {children}
     </button>
   );

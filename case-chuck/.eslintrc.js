@@ -3,24 +3,34 @@ module.exports = {
     browser: true,
     es6: true,
     jest: true,
-    node: true,
+    node: true
   },
-  extends: ['airbnb', 'react-app', 'plugin:prettier/recommended'],
+  extends: [
+    "airbnb",
+    "react-app",
+    "plugin:prettier/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
   globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
+    Atomics: "readonly",
+    SharedArrayBuffer: "readonly"
   },
   parserOptions: {
     ecmaFeatures: {
-      jsx: true,
+      jsx: true
     },
     ecmaVersion: 2018,
-    sourceType: 'module',
+    sourceType: "module"
   },
-  plugins: ['react', 'flowtype', 'import', 'jsx-a11y'],
+  plugins: ["react", "flowtype", "import", "jsx-a11y", "import"],
   rules: {
     "react/jsx-filename-extension": "off",
     "react/forbid-prop-types": "off"
-
   },
+  settings: {
+    "import/resolver": {
+      alias: [["_utils", "./src/utils"]]
+    }
+  }
 };
