@@ -10,7 +10,7 @@ import Icon from "_components/Icon";
 import Close from "_assets/img/close.svg";
 
 import { toggleLoginModal as toggle } from "_store/actions";
-
+import validate from "./form-constraints";
 import { login } from "./styles";
 
 const Login = props => {
@@ -20,9 +20,16 @@ const Login = props => {
     username: "",
     password: ""
   });
+  const [error, setError] = useState("");
 
   const handleChange = e => {
     const { name, value } = e.target;
+
+    if (name === "password" && !validate(value) && value.length > 0) {
+      setError("Password doesnt meet the requirements");
+    } else {
+      setError("");
+    }
     setFormValues(prevValues => ({
       ...prevValues,
       [name]: value
@@ -48,6 +55,7 @@ const Login = props => {
         name="password"
         type="password"
         value={password}
+        error={error}
         changeHandler={handleChange}
       />
       <Button color="darkGray" type="submit">

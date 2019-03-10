@@ -16,6 +16,7 @@ const Input = props => {
     changeHandler,
     value
   } = props;
+
   return (
     <div className={classes.inputContainer}>
       <label className={classes.inputLabel} htmlFor={name}>
@@ -30,7 +31,7 @@ const Input = props => {
         value={value}
         onChange={changeHandler}
       />
-      {error.length > 0 && <span className={classes.inputError}>{error}</span>}
+      <span className={classes.inputError}>{error}</span>
     </div>
   );
 };
@@ -38,7 +39,7 @@ const Input = props => {
 Input.defaultProps = {
   type: "text",
   placeholder: "Enter text",
-  error: "Some Error",
+  error: "",
   value: ""
 };
 
