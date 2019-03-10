@@ -8,13 +8,13 @@ import Icon, { Heart } from "_components/Icon";
 import { cardStyles } from "./styles";
 
 const Card = props => {
-  const { action, text, classes } = props;
+  const { action, joke, classes } = props;
 
   return (
     <div className={classes.card}>
-      <Text>{text}</Text>
+      <Text>{joke.joke}</Text>
       <Icon clickHandler={action} className={classes.icon}>
-        <Heart />
+        <Heart isFav={joke.isFav} />
       </Icon>
     </div>
   );
@@ -26,7 +26,7 @@ Card.defaultProps = {
 
 Card.propTypes = {
   action: PropTypes.func,
-  text: PropTypes.string.isRequired,
+  joke: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired
 };
 

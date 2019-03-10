@@ -1,4 +1,4 @@
-import { takeLatest, fork, put, call } from "redux-saga/effects";
+import { takeLatest, fork, put, call /*select */ } from "redux-saga/effects";
 
 import {
   FETCH_TEN_JOKES,
@@ -11,6 +11,8 @@ import {
 
 import api from "_services/api";
 
+// const getFav = state => state.fav.fav;
+
 function makeApiCall(num) {
   return api.fetchRandomJokes(num);
 }
@@ -20,7 +22,6 @@ function* fetchTenJokes(action) {
   yield put({ type: FETCH_SINGLE_JOKE + RESET });
   try {
     const response = yield call(makeApiCall, 10);
-
     yield put({
       type: FETCH_TEN_JOKES + SUCCESS,
       payload: response.data.value

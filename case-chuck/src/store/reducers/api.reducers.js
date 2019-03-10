@@ -3,7 +3,9 @@ import {
   FETCH_SINGLE_JOKE,
   SUCCESS,
   REQUEST,
-  ERROR
+  ERROR,
+  ADD_FAV,
+  REMOVE_FAV
 } from "_store/constants";
 
 const initialState = {
@@ -85,6 +87,72 @@ const apiReducer = (state = initialState, action) => {
           error: true
         }
       };
+    case ADD_FAV: {
+      return {
+        ...state,
+        fetchRandom: {
+          ...state.fetchRandom,
+          data: state.fetchRandom.data.map(item => {
+            if (item.id === action.joke.id) {
+              return {
+                ...item,
+                isFav: true
+              };
+            }
+            return {
+              ...item
+            };
+          })
+        },
+        fetchSingle: {
+          ...state.fetchSingle,
+          data: state.fetchSingle.data.map(item => {
+            if (item.id === action.joke.id) {
+              return {
+                ...item,
+                isFav: true
+              };
+            }
+            return {
+              ...item
+            };
+          })
+        }
+      };
+    }
+    case REMOVE_FAV: {
+      return {
+        ...state,
+        fetchRandom: {
+          ...state.fetchRandom,
+          data: state.fetchRandom.data.map(item => {
+            if (item.id === action.joke.id) {
+              return {
+                ...item,
+                isFav: false
+              };
+            }
+            return {
+              ...item
+            };
+          })
+        },
+        fetchSingle: {
+          ...state.fetchSingle,
+          data: state.fetchSingle.data.map(item => {
+            if (item.id === action.joke.id) {
+              return {
+                ...item,
+                isFav: false
+              };
+            }
+            return {
+              ...item
+            };
+          })
+        }
+      };
+    }
     default:
       return state;
   }
