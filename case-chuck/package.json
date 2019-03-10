@@ -70,7 +70,9 @@
   },
   "dependencies": {
     "@loadable/component": "^5.6.1",
+    "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
+    "classnames": "^2.2.6",
     "color": "^3.1.0",
     "lodash.debounce": "^4.0.8",
     "prop-types": "^15.7.2",

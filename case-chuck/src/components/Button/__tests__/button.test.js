@@ -2,7 +2,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 
 import { applyTheme } from "../../../utils/test-utils";
-import Button from "../button";
+import Button from "../Button";
 
 describe("Button Component", () => {
   let button = null;

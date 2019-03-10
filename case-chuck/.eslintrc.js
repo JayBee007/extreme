@@ -34,6 +34,7 @@ module.exports = {
         ["_utils", "./src/utils"],
         ["_components", "./src/components"],
         ["_containers", "./src/containers"],
+        ["_services", "./src/services"],
         ["_assets", "./src/assets"],
         ["_store", "./src/store"]
       ]
