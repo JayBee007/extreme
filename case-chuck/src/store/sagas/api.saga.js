@@ -1,28 +1,48 @@
-import { takeLatest, fork, put } from "redux-saga/effects";
+import { takeLatest, fork, put, call } from "redux-saga/effects";
 
 import {
   FETCH_TEN_JOKES,
   FETCH_SINGLE_JOKE,
   SUCCESS,
   REQUEST,
-  ERROR
+  ERROR,
+  RESET
 } from "_store/constants";
 
 import api from "_services/api";
 
+function makeApiCall(num) {
+  return api.fetchRandomJokes(num);
+}
+
 function* fetchTenJokes(action) {
-  put({ type: FETCH_TEN_JOKES + REQUEST });
+  yield put({ type: FETCH_TEN_JOKES + REQUEST });
+  yield put({ type: FETCH_SINGLE_JOKE + RESET });
   try {
-    const result = api.fetchRandomJokes(10);
-    yield put({ type: FETCH_TEN_JOKES + SUCCESS, payload: result });
+    const response = yield call(makeApiCall, 10);
+
+    yield put({
+      type: FETCH_TEN_JOKES + SUCCESS,
+      payload: response.data.value
+    });
   } catch (err) {
     yield put({ type: FETCH_TEN_JOKES + ERROR, payload: err });
   }
 }
 
-function fetchSingleJoke(action) {
-  console.log("fetchSingleJoke", action);
-  api.fetchRandomJokes(1);
+function* fetchSingleJoke(action) {
+  yield put({ type: FETCH_SINGLE_JOKE + REQUEST });
+  yield put({ type: FETCH_TEN_JOKES + RESET });
+  try {
+    const response = yield call(makeApiCall, 1);
+
+    yield put({
+      type: FETCH_SINGLE_JOKE + SUCCESS,
+      payload: response.data.value[0]
+    });
+  } catch (err) {
+    yield put({ type: FETCH_SINGLE_JOKE + ERROR, payload: err });
+  }
 }
 
 function* fetchJokes(action) {

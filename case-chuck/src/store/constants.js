@@ -7,3 +7,4 @@ export const FETCH_SINGLE_JOKE = "FETCH_SINGLE_JOKE";
 export const SUCCESS = "_SUCCESS";
 export const REQUEST = "_REQUEST";
 export const ERROR = "_ERROR";
+export const RESET = "_RESET";

@@ -40,6 +40,10 @@ const styles = {
       padding: 0,
       textDecoration: "none",
       listStyle: "none"
+    },
+    p: {
+      margin: 0,
+      padding: 0
     }
   }
 };
