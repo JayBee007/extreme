@@ -1,4 +1,4 @@
-import { takeLatest, fork, put, call /*select */ } from "redux-saga/effects";
+import { takeLatest, fork, put, call, select, delay } from "redux-saga/effects";
 
 import {
   FETCH_TEN_JOKES,
@@ -11,7 +11,7 @@ import {
 
 import api from "_services/api";
 
-// const getFav = state => state.fav.fav;
+const getSingleFetch = state => state.jokes.fetchSingle.data;
 
 function makeApiCall(num) {
   return api.fetchRandomJokes(num);
@@ -34,13 +34,19 @@ function* fetchTenJokes(action) {
 function* fetchSingleJoke(action) {
   yield put({ type: FETCH_SINGLE_JOKE + REQUEST });
   yield put({ type: FETCH_TEN_JOKES + RESET });
+  const singleJokes = yield select(getSingleFetch);
+  let count = singleJokes.length;
   try {
-    const response = yield call(makeApiCall, 1);
+    while (count < 10) {
+      const response = yield call(makeApiCall, 1);
 
-    yield put({
-      type: FETCH_SINGLE_JOKE + SUCCESS,
-      payload: response.data.value[0]
-    });
+      yield put({
+        type: FETCH_SINGLE_JOKE + SUCCESS,
+        payload: response.data.value[0]
+      });
+      yield delay(5000);
+      count += 1;
+    }
   } catch (err) {
     yield put({ type: FETCH_SINGLE_JOKE + ERROR, payload: err });
   }
