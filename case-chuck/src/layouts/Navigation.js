@@ -65,9 +65,9 @@ const Navigation = props => {
       <Transition
         native
         items={loginModal}
-        from={{ width: "0%" }}
-        enter={{ width: "100%" }}
-        leave={{ width: "0%", marginLeft: "-500px" }}
+        from={{ opacity: 0, marginTop: -400 }}
+        enter={{ opacity: 1, marginTop: 0 }}
+        leave={{ opacity: 0, marginTop: -1000 }}
         config={{ ...config.default }}
       >
         {isOpen =>
