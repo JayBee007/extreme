@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-export const login = {
+export const loginStyles = {
   icon: {
     marginLeft: "auto"
   }

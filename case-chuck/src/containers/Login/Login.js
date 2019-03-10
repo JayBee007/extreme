@@ -9,13 +9,21 @@ import Button from "_components/Button";
 import Icon from "_components/Icon";
 import Close from "_assets/img/close.svg";
 
-import { toggleLoginModal as toggle } from "_store/actions";
+import {
+  toggleLoginModal as toggle,
+  login as loginAction
+} from "_store/actions";
 import validate from "./form-constraints";
-import { login } from "./styles";
+import { loginStyles } from "./styles";
 
 const Login = props => {
-  const { classes, toggleLoginModal } = props;
-  const submitHandler = e => {};
+  const { classes, toggleLoginModal, login } = props;
+  const submitHandler = e => {
+    if (validate(formValues.password)) {
+      login();
+      toggleLoginModal();
+    }
+  };
   const [formValues, setFormValues] = useState({
     username: "",
     password: ""
@@ -67,13 +75,14 @@ const Login = props => {
 
 Login.propTypes = {
   classes: Proptypes.object.isRequired,
-  toggleLoginModal: Proptypes.func.isRequired
+  toggleLoginModal: Proptypes.func.isRequired,
+  login: Proptypes.func.isRequired
 };
 
 export default compose(
   connect(
     null,
-    { toggleLoginModal: toggle }
+    { toggleLoginModal: toggle, login: loginAction }
   ),
-  withStyle(login)
+  withStyle(loginStyles)
 )(Login);

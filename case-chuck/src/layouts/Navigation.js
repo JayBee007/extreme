@@ -10,20 +10,27 @@ import NavBar from "_components/NavBar";
 import Modal from "_components/Modal";
 import Login from "_containers/Login";
 
-import { toggleLoginModal as toggle } from "_store/actions";
+import {
+  toggleLoginModal as toggle,
+  logout as logoutAction
+} from "_store/actions";
 import { modal } from "./styles";
 
 const Navigation = props => {
-  const { classes, loginModal, toggleLoginModal } = props;
+  const { classes, loginModal, toggleLoginModal, isLogged, logout } = props;
   const handleClick = () => {
-    toggleLoginModal();
+    if (!isLogged) {
+      toggleLoginModal();
+    } else if (isLogged) {
+      logout();
+    }
   };
   return (
     <React.Fragment>
       <NavBar>
         <NavBar.NavBarRight>
           <Button type="button" handleClick={handleClick}>
-            Login
+            {isLogged ? "Signout" : "Login"}
           </Button>
         </NavBar.NavBarRight>
       </NavBar>
@@ -53,19 +60,22 @@ const Navigation = props => {
 Navigation.propTypes = {
   classes: PropTypes.object.isRequired,
   loginModal: PropTypes.bool.isRequired,
-  toggleLoginModal: PropTypes.func.isRequired
+  toggleLoginModal: PropTypes.func.isRequired,
+  isLogged: PropTypes.bool.isRequired,
+  logout: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    loginModal: state.app.loginModal
+    loginModal: state.app.loginModal,
+    isLogged: state.auth.isLogged
   };
 }
 
 export default compose(
   connect(
     mapStateToProps,
-    { toggleLoginModal: toggle }
+    { toggleLoginModal: toggle, logout: logoutAction }
   ),
   withStyle(modal)
 )(Navigation);
