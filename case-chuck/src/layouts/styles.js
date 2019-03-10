@@ -24,5 +24,10 @@ export const modal = theme => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center"
+  },
+  btnGroup: {
+    display: "flex",
+    width: "270px",
+    justifyContent: "space-between"
   }
 });

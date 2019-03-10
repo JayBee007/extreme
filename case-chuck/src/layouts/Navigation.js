@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import { compose } from "redux";
 import { Transition, config, animated } from "react-spring";
 import PropTypes from "prop-types";
@@ -17,7 +18,15 @@ import {
 import { modal } from "./styles";
 
 const Navigation = props => {
-  const { classes, loginModal, toggleLoginModal, isLogged, logout } = props;
+  const {
+    classes,
+    loginModal,
+    toggleLoginModal,
+    isLogged,
+    logout,
+    history,
+    location
+  } = props;
   const handleClick = () => {
     if (!isLogged) {
       toggleLoginModal();
@@ -25,13 +34,32 @@ const Navigation = props => {
       logout();
     }
   };
+  const toJokes = () => {
+    history.push("/jokes");
+  };
+
+  const toFav = () => {
+    history.push("/fav");
+  };
   return (
     <React.Fragment>
       <NavBar>
         <NavBar.NavBarRight>
-          <Button type="button" handleClick={handleClick}>
-            {isLogged ? "Signout" : "Login"}
-          </Button>
+          <div className={classes.btnGroup}>
+            {isLogged ? (
+              <Button type="button" handleClick={toJokes}>
+                Jokes
+              </Button>
+            ) : null}
+            {isLogged ? (
+              <Button type="button" handleClick={toFav}>
+                Favorites
+              </Button>
+            ) : null}
+            <Button type="button" handleClick={handleClick}>
+              {isLogged ? "Signout" : "Login"}
+            </Button>
+          </div>
         </NavBar.NavBarRight>
       </NavBar>
       <Transition
@@ -62,7 +90,9 @@ Navigation.propTypes = {
   loginModal: PropTypes.bool.isRequired,
   toggleLoginModal: PropTypes.func.isRequired,
   isLogged: PropTypes.bool.isRequired,
-  logout: PropTypes.func.isRequired
+  logout: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
@@ -77,5 +107,6 @@ export default compose(
     mapStateToProps,
     { toggleLoginModal: toggle, logout: logoutAction }
   ),
+  withRouter,
   withStyle(modal)
 )(Navigation);

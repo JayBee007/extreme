@@ -1,12 +1,15 @@
 /* eslint-disable import/prefer-default-export */
-export const jokes = {
+export const jokesStyles = {
   jokes: {
     display: "flex",
     flex: 1,
     flexDirection: "column",
     paddingTop: "1.5rem"
   },
-  fetchBtn: {
+  btnGroup: {
     alignSelf: "center"
+  },
+  fetchBtn: {
+    marginRight: "1rem"
   }
 };

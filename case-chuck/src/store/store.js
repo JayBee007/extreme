@@ -11,7 +11,7 @@ const initialState = {};
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: ["app"]
+  blacklist: ["app", "jokes"]
 };
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
