@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
+import { connect } from "react-redux";
+import { compose } from "redux";
 import { Transition, config, animated } from "react-spring";
 import PropTypes from "prop-types";
 import withStyle from "react-jss";
@@ -8,14 +10,14 @@ import NavBar from "_components/NavBar";
 import Modal from "_components/Modal";
 import Login from "_containers/Login";
 
+import { toggleLoginModal as toggle } from "_store/actions";
 import { modal } from "./styles";
 
 const Navigation = props => {
-  const [open, setOpen] = useState(true);
+  const { classes, loginModal, toggleLoginModal } = props;
   const handleClick = () => {
-    setOpen(true);
+    toggleLoginModal();
   };
-  const { classes } = props;
   return (
     <React.Fragment>
       <NavBar>
@@ -27,10 +29,10 @@ const Navigation = props => {
       </NavBar>
       <Transition
         native
-        items={open}
+        items={loginModal}
         from={{ width: "0%" }}
         enter={{ width: "100%" }}
-        leave={{ width: "0%" }}
+        leave={{ width: "0%", marginLeft: "-500px" }}
         config={{ ...config.default }}
       >
         {isOpen =>
@@ -49,7 +51,21 @@ const Navigation = props => {
 };
 
 Navigation.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  loginModal: PropTypes.bool.isRequired,
+  toggleLoginModal: PropTypes.func.isRequired
 };
 
-export default withStyle(modal)(Navigation);
+function mapStateToProps(state) {
+  return {
+    loginModal: state.app.loginModal
+  };
+}
+
+export default compose(
+  connect(
+    mapStateToProps,
+    { toggleLoginModal: toggle }
+  ),
+  withStyle(modal)
+)(Navigation);

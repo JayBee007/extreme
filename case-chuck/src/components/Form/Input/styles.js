@@ -13,10 +13,14 @@ export const input = theme => ({
     display: "inline-block",
     height: "3.8rem",
     fontSize: "inherit",
-    padding: "0.5rem"
+    padding: "0.5rem",
+    border: "none",
+    background: theme.colors.white
   },
   inputError: {
-    fontSize: "1rem",
-    color: theme.colors.red
+    display: "inline-block",
+    fontSize: "1.2rem",
+    color: theme.colors.red,
+    height: "1.3rem"
   }
 });

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { compose } from "redux";
 import withStyle from "react-jss";
 import Proptypes from "prop-types";
 
@@ -7,18 +9,27 @@ import Button from "_components/Button";
 import Icon from "_components/Icon";
 import Close from "_assets/img/close.svg";
 
+import { toggleLoginModal as toggle } from "_store/actions";
+import validate from "./form-constraints";
 import { login } from "./styles";
 
 const Login = props => {
-  const { classes } = props;
+  const { classes, toggleLoginModal } = props;
   const submitHandler = e => {};
   const [formValues, setFormValues] = useState({
     username: "",
     password: ""
   });
+  const [error, setError] = useState("");
 
   const handleChange = e => {
     const { name, value } = e.target;
+
+    if (name === "password" && !validate(value) && value.length > 0) {
+      setError("Password doesnt meet the requirements");
+    } else {
+      setError("");
+    }
     setFormValues(prevValues => ({
       ...prevValues,
       [name]: value
@@ -28,7 +39,7 @@ const Login = props => {
   const { username, password } = formValues;
   return (
     <Form submitHandler={submitHandler}>
-      <Icon className={classes.icon}>
+      <Icon className={classes.icon} clickHandler={toggleLoginModal}>
         <Close />
       </Icon>
       <Input
@@ -44,6 +55,7 @@ const Login = props => {
         name="password"
         type="password"
         value={password}
+        error={error}
         changeHandler={handleChange}
       />
       <Button color="darkGray" type="submit">
@@ -54,7 +66,14 @@ const Login = props => {
 };
 
 Login.propTypes = {
-  classes: Proptypes.object.isRequired
+  classes: Proptypes.object.isRequired,
+  toggleLoginModal: Proptypes.func.isRequired
 };
 
-export default withStyle(login)(Login);
+export default compose(
+  connect(
+    null,
+    { toggleLoginModal: toggle }
+  ),
+  withStyle(login)
+)(Login);
