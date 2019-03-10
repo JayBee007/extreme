@@ -3,6 +3,7 @@ import {
   FETCH_SINGLE_JOKE,
   SUCCESS,
   REQUEST,
+  RESET,
   ERROR,
   ADD_FAV,
   REMOVE_FAV
@@ -56,6 +57,14 @@ const apiReducer = (state = initialState, action) => {
           error: true
         }
       };
+    case FETCH_TEN_JOKES + RESET:
+      return {
+        ...state,
+        fetchRandom: {
+          ...state.fetchRandom,
+          data: []
+        }
+      };
     case FETCH_SINGLE_JOKE + REQUEST:
       return {
         ...state,
@@ -85,6 +94,14 @@ const apiReducer = (state = initialState, action) => {
           request: false,
           success: false,
           error: true
+        }
+      };
+    case FETCH_SINGLE_JOKE + RESET:
+      return {
+        ...state,
+        fetchSingle: {
+          ...state.fetchSingle,
+          data: []
         }
       };
     case ADD_FAV: {

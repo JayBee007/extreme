@@ -9,7 +9,10 @@ const favReducer = (state = initialState, action) => {
     case ADD_FAV:
       return {
         ...state,
-        fav: [...state.fav, { ...action.joke, isFav: true }]
+        fav:
+          state.fav.length < 10
+            ? [...state.fav, { ...action.joke, isFav: true }]
+            : [...state.fav]
       };
     case REMOVE_FAV:
       return {
