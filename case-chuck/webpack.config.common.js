@@ -30,7 +30,8 @@ module.exports = {
       _components: path.resolve(__dirname, "src/components/"),
       _containers: path.resolve(__dirname, "src/containers/"),
       _assets: path.resolve(__dirname, "src/assets/"),
-      _store: path.resolve(__dirname, "src/store/")
+      _store: path.resolve(__dirname, "src/store/"),
+      _services: path.resolve(__dirname, "src/services/")
     }
   }
 };
