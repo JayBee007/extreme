@@ -6,6 +6,6 @@ export const jokeStyles = {
     justifyContent: "space-around",
     flex: 1,
     alignContent: "flex-start",
-    paddingTop: "2rem"
+    padding: "2rem"
   }
 };

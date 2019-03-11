@@ -17,5 +17,10 @@ export const cardStyles = theme => ({
   icon: {
     marginTop: "auto",
     marginLeft: "auto"
+  },
+  "@media (max-width: 760px)": {
+    card: {
+      width: "100%"
+    }
   }
 });
