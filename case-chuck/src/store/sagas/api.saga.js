@@ -31,25 +31,30 @@ function* fetchTenJokes(action) {
   }
 }
 
-function* fetchSingleJoke(action) {
-  yield put({ type: FETCH_SINGLE_JOKE + REQUEST });
-  yield put({ type: FETCH_TEN_JOKES + RESET });
+function* periodicRefresh() {
   const singleJokes = yield select(getSingleFetch);
-  let count = singleJokes.length;
-  try {
-    while (count < 10) {
+  const count = singleJokes.length;
+  if (count < 10) {
+    try {
       const response = yield call(makeApiCall, 1);
-
       yield put({
         type: FETCH_SINGLE_JOKE + SUCCESS,
         payload: response.data.value[0]
       });
       yield delay(5000);
-      count += 1;
+      yield fork(periodicRefresh);
+    } catch (err) {
+      yield put({ type: FETCH_SINGLE_JOKE + ERROR, payload: err });
     }
-  } catch (err) {
-    yield put({ type: FETCH_SINGLE_JOKE + ERROR, payload: err });
   }
+
+  return -1;
+}
+
+function* fetchSingleJoke(action) {
+  yield put({ type: FETCH_SINGLE_JOKE + REQUEST });
+  yield put({ type: FETCH_TEN_JOKES + RESET });
+  yield fork(periodicRefresh);
 }
 
 function* fetchJokes(action) {
