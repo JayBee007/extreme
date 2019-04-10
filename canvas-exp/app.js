@@ -5,7 +5,7 @@ const SNAKE_BORDER_COLOR = "darkgreen";
 const FOOD_COLOUR = "red";
 const FOOD_BORDER_COLOUR = "darkred";
 const SPIDER_COLOR = "yellow";
-const SPIDER_BORDER_COLOR = "darkblue"
+const SPIDER_BORDER_COLOR = "darkblue";
 
 let snake = [
   { x: 150, y: 150 },
@@ -18,11 +18,13 @@ let snake = [
 let score = 0;
 let dx = 10;
 let dy = 0;
-let foodX, foodY;
+let foodX, foodY, spiderX, spiderY;
 let changingDirection = false;
+let isSpiderPresent = true;
 
 const gameCanvas = document.getElementById("gameCanvas");
 const scoreId = document.getElementById("score");
+const timerId = document.getElementById("spider-timer");
 const ctx = gameCanvas.getContext("2d");
 
 function didGameEnd() {
@@ -43,6 +45,18 @@ function randomTen(min, max) {
   return Math.round((Math.random() * (max - min)) / 10) * 10;
 }
 
+function createSpider() {
+  spiderX = randomTen(0, gameCanvas.width - 10);
+  spiderY = randomTen(0, gameCanvas.height - 10);
+
+  snake.forEach(function(part) {
+    const foodIsOnSnake = part.x === spiderX && part.y === spiderY;
+    if (foodIsOnSnake) {
+      createSpider();
+    }
+  });
+}
+
 function createFood() {
   foodX = randomTen(0, gameCanvas.width - 10);
   foodY = randomTen(0, gameCanvas.height - 10);
@@ -55,9 +69,20 @@ function createFood() {
   });
 }
 
+function clearSpider() {
+  spiderX = spiderY = undefined;
+}
+
+function drawSpider() {
+  ctx.fillStyle = SPIDER_COLOR;
+  ctx.strokeStyle = SPIDER_BORDER_COLOR;
+  ctx.fillRect(spiderX, spiderY, 10, 10);
+  ctx.strokeRect(spiderX, spiderY, 10, 10);
+}
+
 function drawFood() {
-  ctx.fillStyle = "red";
-  ctx.strokeStyle = "darkred";
+  ctx.fillStyle = FOOD_COLOUR;
+  ctx.strokeStyle = FOOD_BORDER_COLOUR;
 
   ctx.fillRect(foodX, foodY, 10, 10);
   ctx.strokeRect(foodX, foodY, 10, 10);
@@ -83,10 +108,18 @@ function advanceSnake() {
   snake.unshift(head);
 
   const didEatFood = snake[0].x === foodX && snake[0].y === foodY;
+  const didEatSpider = snake[0].x === spiderX && snake[0].y === spiderY;
   if (didEatFood) {
     score += 10;
     scoreId.innerHTML = score;
     createFood();
+  } else if (didEatSpider) {
+    score += 50;
+    scoreId.innerHTML = score;
+    spiderX = spiderY = undefined;
+    setTimeout(function() {
+      createSpider();
+    }, 3000);
   } else {
     snake.pop();
   }
@@ -140,6 +173,7 @@ function main() {
     changingDirection = false;
     clearCanvas();
     drawFood();
+    drawSpider();
     advanceSnake();
     drawSnake();
     main();
@@ -148,3 +182,4 @@ function main() {
 
 main();
 createFood();
+createSpider();
