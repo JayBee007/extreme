@@ -2,6 +2,8 @@ const CANVAS_BORDER_COLOR = "black";
 const CANVAS_BACKGROUND_COLOR = "white";
 const SNAKE_COLOR = "lightgreen";
 const SNAKE_BORDER_COLOR = "darkgreen";
+const FOOD_COLOUR = "red";
+const FOOD_BORDER_COLOUR = "darkred";
 
 let snake = [
   { x: 150, y: 150 },
@@ -13,10 +15,37 @@ let snake = [
 
 let dx = 10;
 let dy = 0;
+let foodX, foodY;
 
 const gameCanvas = document.getElementById("gameCanvas");
 
 const ctx = gameCanvas.getContext("2d");
+
+function randomTen(min, max) {
+  return Math.round(Math.random() * (max-min) / 10) * 10;
+}
+
+
+
+function createFood() {
+  foodX = randomTen(0, gameCanvas.width - 10);
+  foodY = randomTen(0, gameCanvas.height - 10);
+
+  snake.forEach(function(part) {
+    const foodIsOnSnake = part.x === foodX && part.y === foodY;
+    if (foodIsOnSnake) {
+      createFood();
+    }
+  });
+}
+
+function drawFood() {
+  ctx.fillStyle = "red";
+  ctx.strokeStyle = "darkred";
+
+  ctx.fillRect(foodX, foodY, 10, 10);
+  ctx.strokeRect(foodX, foodY, 10, 10);
+}
 
 function clearCanvas() {
   ctx.fillStyle = CANVAS_BACKGROUND_COLOR;
@@ -44,7 +73,6 @@ function drawSnake() {
 }
 
 function changeDirection(event) {
-  console.log('key')
   const LEFT_KEY = 37;
   const RIGHT_KEY = 39;
   const UP_KEY = 38;
@@ -77,15 +105,16 @@ function changeDirection(event) {
   }
 }
 
-document.addEventListener('keydown', changeDirection);
+document.addEventListener("keydown", changeDirection);
 function main() {
   setTimeout(function() {
     clearCanvas();
+    drawFood();
     advanceSnake();
     drawSnake();
-
     main();
   }, 100);
 }
 
 main();
+createFood();
