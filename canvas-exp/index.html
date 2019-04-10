@@ -5,9 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Snake</title>
+    <style>
+      #display {
+        max-width: 300px;
+        justify-content: space-between;
+        display: flex;
+      }
+    </style>
   </head>
 
   <body>
+    <div id="display">
+      <div id="score">0</div>
+      <div id="spider-timer">0</div>
+    </div>
     <canvas id="gameCanvas" width="300" height="300"></canvas>
 
     <script src="app.js"></script>
