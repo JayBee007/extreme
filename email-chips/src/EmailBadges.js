@@ -6,12 +6,11 @@ const EmailBadges = props => {
   return (
     <div>
       {emails.map(email => (
-        <div key={email}>
+        <div key={email} className="tag-item">
           <span>{email}</span>
-          <button
-            type="button"
-            onClick={() => onDelete(email)}
-            >&times;</button>
+          <button className="button" type="button" onClick={() => onDelete(email)}>
+            &times;
+          </button>
         </div>
       ))}
     </div>
