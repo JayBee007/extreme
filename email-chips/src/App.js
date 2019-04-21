@@ -37,7 +37,7 @@ class App extends Component {
   handleChange = e => {
     this.setState({
       value: e.target.value,
-      error:null,
+      error: null
     });
   };
 
@@ -63,17 +63,33 @@ class App extends Component {
     this.setState({ emails: filteredEmails });
   };
 
+  handlePaste = e => {
+    e.preventDefault();
+
+    const paste = e.clipboardData.getData("text");
+    const emails = paste.match(/[\w\d\.-]+@[\w\d\.-]+\.[\w\d\.-]+/g);
+
+    if (emails) {
+      const toBeAdded = emails.filter(email => this.isValid(email));
+
+      this.setState({
+        emails: [...this.state.emails, ...toBeAdded]
+      });
+    }
+  };
+
   render() {
     const { value, emails, error } = this.state;
     return (
       <main className="wrapper">
         <EmailBadges onDelete={this.handleDelete} emails={emails} />
         <input
-          className={"input " + (error ? 'has-error': '') }
+          className={"input " + (error ? "has-error" : "")}
           placeholder="Type or paste email addresses and press `Enter`"
           value={value}
           onChange={this.handleChange}
           onKeyDown={this.handleKeyDown}
+          onPaste={this.handlePaste}
         />
         {error && <p className="error">{this.state.error}</p>}
       </main>
