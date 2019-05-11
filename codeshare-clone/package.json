@@ -4,7 +4,8 @@
   "description": "A codeshare clone using expressjs, mongodb and peerjs",
   "main": "app.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "start:nodemon": "nodemon --watch ./**/* --ignore ./node_modules ./bin/www"
   },
   "repository": {
     "type": "git",
@@ -31,5 +32,8 @@
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
   }
 }
