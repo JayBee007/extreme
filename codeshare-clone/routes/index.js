@@ -1,10 +1,10 @@
 var express = require("express");
+var router = express.Router();
 var nodemailer = require("nodemailer");
 
 var mailConfig = require("../config/mail.config");
 
 var transport = nodemailer.createTransport(mailConfig);
-var router = express.Router();
 /* GET home page. */
 router.get("/", function(req, res, next) {
   res.render("index", { title: "Code Share: A code sharing platform" });
@@ -48,13 +48,5 @@ router
       });
     }
   });
-
-router.get("/login", function(req, res, next) {
-  res.render("login", { title: "Login into your account" });
-});
-
-router.get("/register", function(req, res, next) {
-  res.render("register", { title: "Register a new account" });
-});
 
 module.exports = router;
