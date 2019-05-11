@@ -16,7 +16,24 @@ router
     res.render("contact", { title: "Code Share: A code sharing platform" });
   })
   .post(function(req, res, next) {
-    res.render("thank", { title: "Code Share: A code sharing platform" });
+    
+    req.checkBody("name", "Invalid Name").notEmpty();
+    req.checkBody("email", "Invalid Email").isEmail();
+    req.checkBody("message", "Invalid Message").notEmpty();
+
+    var errors = req.validationErrors();
+    console.log('errors', errors)
+    if (errors) {
+      res.render("contact", {
+        title: "Code Share: A code sharing platform",
+        name: req.body.name,
+        email: req.body.email,
+        message: req.body.message,
+        errorMessages: errors
+      })
+    } else {
+      res.render("thank", { title: "Code Share: A code sharing platform" });
+    }
   });
 
 module.exports = router;
