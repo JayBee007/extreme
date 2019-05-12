@@ -1,12 +1,20 @@
 var express = require("express");
 var router = express.Router();
+var passport = require("passport");
 
 var User = require('../models/user');
 
-
-router.get("/login", function(req, res, next) {
-  res.render("login", { title: "Login into your account" });
-});
+router.route("/login")
+  .get(function(req, res, next) {
+    res.render("login", { title: "Login into your account" });
+  })
+  .post(passport.authenticate('local', {
+    failureRedirect: '/login'
+  }),
+    function(req,res) {
+      res.redirect('/')
+    }
+  );
 
 router
   .route("/register")
@@ -35,7 +43,7 @@ router
       user.setPassword(req.body.password);
       user.save(function (err, newUser) {
         if(err) {
-          console.log('error',err)
+          
           res.render('register', {
             errorMessages:[{
               msg: err.errmsg
