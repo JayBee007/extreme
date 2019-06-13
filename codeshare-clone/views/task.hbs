@@ -1,1 +1,76 @@
-<h1>This is a new Task</h1>
+<div>
+  <div class="row">
+    <div class="col-md-8">
+      <textarea name="" id="code-screen" cols="30" rows="10"></textarea>
+    </div>
+    <div class="col-md-4" id="chatbox">
+      <div class="card">
+        <div class="card-header">
+          Chat Room
+          <span class="offset-8" id="chatbox-username">
+            {{#if user}}
+            {{user.name}}
+            {{/if}}
+          </span>
+        </div>
+        <div class="card-body">
+          <ul class="media-list" style="height: 300px;overflow-y:scroll;" id="chatbox-listMessages">
+
+          </ul>
+        </div>
+        <div class="card-footer">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Enter message" id="userMessage">
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-primary" onclick="sendMessage()">Send</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.47.0/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.47.0/mode/javascript/javascript.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+  const socket = io.connect('http://localhost:3000');
+  const elem = document.getElementById("code-screen");
+  const editor = CodeMirror.fromTextArea(elem, {
+    lineNumbers: true,
+    theme: 'monokai'
+  });
+
+  let username = $("#chatbox-username").val();
+  console.log('username', username)
+  if (username === '') {
+    const userId = Math.floor(Math.random() * 9999).toString();
+    username = "User" + userId;
+    $('chatbox-username').text(username);
+  }
+
+  let userMessage = function (name, text) {
+    return `
+      <li class="media">
+        <div class="media-body">
+          <b>${name} : </b> ${text}
+          <hr />
+        </div>
+      </li>
+    `
+  }
+
+  const sendMessage = function () {
+    const userMessage = $('#userMessage').val();
+
+    socket.emit('chat:message', { message: userMessage, username })
+    $('#userMessage').val("");
+  }
+
+  socket.on('chat:message', (data) => {
+    console.log('data', data);
+    $('#chatbox-listMessages').append(userMessage(data.username, data.message))
+  })
+</script>
