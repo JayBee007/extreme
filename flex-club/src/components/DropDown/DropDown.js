@@ -20,8 +20,7 @@ const DropDown = props => {
     { value: 'Cape Town' }
   ];
   const handleSelection = selection => {
-    // eslint-disable-next-line no-console
-    console.log('selection', selection);
+    props.onChange(selection);
   };
   return (
     <Downshift
@@ -94,7 +93,8 @@ DropDown.propTypes = {
     colors: PropTypes.objectOf({
       secondary: PropTypes.string
     })
-  }).isRequired
+  }).isRequired,
+  onChange: PropTypes.func.isRequired
 };
 
 export default withTheme(DropDown);
