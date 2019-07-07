@@ -89,8 +89,8 @@ const DropDown = props => {
 };
 
 DropDown.propTypes = {
-  theme: PropTypes.objectOf({
-    colors: PropTypes.objectOf({
+  theme: PropTypes.shape({
+    color: PropTypes.shape({
       secondary: PropTypes.string
     })
   }).isRequired,

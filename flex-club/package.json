@@ -18,7 +18,8 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "lint:fix": "eslint './src/**/*.{js,jsx}' --fix"
+    "lint:fix": "eslint './src/**/*.{js,jsx}' --fix",
+    "svgr": "svgr -d src/components/Icons/ assets/icons"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -55,6 +56,7 @@
     "@storybook/addon-links": "^5.1.9",
     "@storybook/addons": "^5.1.9",
     "@storybook/react": "^5.1.9",
+    "@svgr/cli": "^4.3.1",
     "babel-plugin-styled-components": "^1.10.6",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-config-prettier": "^6.0.0",
