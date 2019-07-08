@@ -2,7 +2,6 @@
 /* eslint-disable jsx-a11y/label-has-for */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
-import PropTypes from 'prop-types';
 import Downshift from 'downshift';
 import { withTheme } from 'styled-components';
 
@@ -86,15 +85,6 @@ const DropDown = props => {
       )}
     </Downshift>
   );
-};
-
-DropDown.propTypes = {
-  theme: PropTypes.shape({
-    color: PropTypes.shape({
-      secondary: PropTypes.string
-    })
-  }).isRequired,
-  onChange: PropTypes.func.isRequired
 };
 
 export default withTheme(DropDown);

@@ -3,7 +3,6 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import { withTheme } from 'styled-components';
-import PropTypes from 'prop-types';
 
 import CardContainer from './CardContainer';
 import Text from './Text';
@@ -26,8 +25,6 @@ const Card = props => {
     </CardContainer>
   );
 };
-Card.propTypes = {
-  theme: PropTypes.object.isRequired,
-}
+
 
 export default withTheme(Card);

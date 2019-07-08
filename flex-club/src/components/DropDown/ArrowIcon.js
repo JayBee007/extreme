@@ -1,6 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const ArrowIcon = ({ isOpen }) => {
   return (
@@ -16,10 +15,6 @@ const ArrowIcon = ({ isOpen }) => {
       <path d="M1,6 L10,15 L19,6" />
     </svg>
   );
-};
-
-ArrowIcon.propTypes = {
-  isOpen: PropTypes.bool.isRequired
 };
 
 export default ArrowIcon;
