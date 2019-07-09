@@ -11,11 +11,13 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:prettier/recommended'
   ],
-  plugins: ['react', 'prettier', 'import', 'jsx-a11y'],
+  plugins: ['react','react-hooks','prettier', 'import', 'jsx-a11y'],
   rules: {
     'prettier/prettier': ['error', { singleQuote: true }],
     'react/jsx-filename-extension': 'off',
-    'react/prop-types': 'off'
+    'react/prop-types': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn'
   },
   settings: {
     'import/resolver': {

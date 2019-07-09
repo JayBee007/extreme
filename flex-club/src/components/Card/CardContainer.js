@@ -3,11 +3,12 @@ import styled from 'styled-components';
 const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  width: 30rem;
-  height: 40rem;
+  width: 20rem;
+  height: 35rem;
   border: 1px solid ${props => props.theme.colors.primary};
   border-radius: 0.7rem;
   box-shadow: ${({ isSelected }) =>

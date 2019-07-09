@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable prettier/prettier */
@@ -9,19 +10,23 @@ import CardContainer from './CardContainer';
 import Text from './Text';
 
 const Card = props => {
-  const { theme } = props;
+  const { theme, day, temp, desc, onClick, id } = props;
+
+  const handleClick = () => {
+    onClick(id)
+  }
 
   return (
-    <CardContainer>
-      <Text>Tue</Text>
+    <CardContainer onClick={handleClick}>
+      <Text>{day}</Text>
       <CloudDrizzle
         fill={theme.colors.primary}
         stroke="none"
         viewBox="28 30 50 50"
         style={{ marginBottom: '1.5rem' }}
       />
-      <Text>27 &deg;C</Text>
-      <Text>Extreme Rain</Text>
+      <Text>{temp} &deg;C</Text>
+      <Text smallText>{desc}</Text>
     </CardContainer>
   );
 };

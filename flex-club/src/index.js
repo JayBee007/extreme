@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { ThemeProvider } from 'styled-components';
 
+import StateProvider from 'providers/StateProvider';
 import GlobalStyle from './components/GlobalStyle';
 import App from './App';
 import theme from './config/theme';
@@ -11,8 +12,10 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   <ThemeProvider theme={theme}>
     <React.Fragment>
-      <App />
-      <GlobalStyle />
+      <StateProvider>
+        <App />
+        <GlobalStyle />
+      </StateProvider>
     </React.Fragment>
   </ThemeProvider>,
   document.getElementById('root')

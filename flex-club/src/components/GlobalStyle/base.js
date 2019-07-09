@@ -12,6 +12,11 @@ const base = css`
   body {
     box-sizing: border-box;
   }
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
   p {
     margin: 0;
     padding: 0;

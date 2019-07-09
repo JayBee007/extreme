@@ -1,6 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable jsx-a11y/label-has-for */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import Downshift from 'downshift';
 import { withTheme } from 'styled-components';
@@ -14,12 +11,12 @@ import Item from './Item';
 
 const DropDown = props => {
   const items = [
-    { value: 'Guadalajara' },
-    { value: 'Amsterdam' },
-    { value: 'Cape Town' }
+    { value: 'Guadalajara', coords: { lng: -103.3475, lat: 20.676667 } },
+    { value: 'Amsterdam', coords: { lng: 4.9, lat: 52.366667 } },
+    { value: 'Cape Town', coords: { lng: 18.423889, lat: -33.925278 } }
   ];
   const handleSelection = selection => {
-    props.onChange(selection);
+    props.onChange(selection || {});
   };
   return (
     <Downshift
@@ -37,7 +34,7 @@ const DropDown = props => {
         selectedItem,
         clearSelection
       }) => (
-        <div style={{ width: '45rem', margin: 'auto' }}>
+        <div style={{ width: '45rem' }}>
           <div style={{ position: 'relative' }}>
             <Input
               {...getInputProps({ isOpen, placeholder: 'Enter a City' })}
