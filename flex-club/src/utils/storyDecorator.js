@@ -2,9 +2,9 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import GlobalStyle from '../components/GlobalStyle';
+import GlobalStyle from 'components/GlobalStyle';
 
-import theme from '../config/theme';
+import theme from 'config/theme';
 
 const withGlobal = storyFn => {
   return (

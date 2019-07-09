@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import centered from '@storybook/addon-centered/react';
 import { action } from '@storybook/addon-actions';
 
-import withGlobal from '../../utils/storyDecorator';
+import withGlobal from 'utils/storyDecorator';
 
 import DropDown from './DropDown';
 

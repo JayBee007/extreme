@@ -4,9 +4,9 @@
 import React from 'react';
 import { withTheme } from 'styled-components';
 
+import CloudDrizzle from 'components/Icons/CloudDrizzle';
 import CardContainer from './CardContainer';
 import Text from './Text';
-import CloudDrizzle from '../Icons/CloudDrizzle';
 
 const Card = props => {
   const { theme } = props;

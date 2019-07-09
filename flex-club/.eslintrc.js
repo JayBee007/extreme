@@ -16,5 +16,12 @@ module.exports = {
     'prettier/prettier': ['error', { singleQuote: true }],
     'react/jsx-filename-extension': 'off',
     'react/prop-types': 'off'
+  },
+  settings: {
+    'import/resolver': {
+      node: {
+        paths: ['src']
+      }
+    }
   }
 };
