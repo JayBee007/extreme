@@ -2,11 +2,17 @@ import {
   SET_CURRENT_LOCATION,
   FIVE_DAY_ERROR,
   FIVE_DAY_REQUEST,
-  FIVE_DAY_SUCCESS
+  FIVE_DAY_SUCCESS,
+  SELECT_WEATHER_DAY
 } from './constants';
 
 const stateReducer = (state, action) => {
   switch (action.type) {
+    case SELECT_WEATHER_DAY:
+      return {
+        ...state,
+        selectedCardId: action.payload.id
+      };
     case FIVE_DAY_REQUEST:
       return {
         ...state,

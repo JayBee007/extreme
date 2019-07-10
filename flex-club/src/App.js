@@ -9,31 +9,35 @@ import Card from 'components/Card';
 import LayoutContainer from 'layout/LayoutContainer';
 import FlexRow from 'layout/FlexRow';
 
-import processWeatherData from 'utils/processWeatherData';
-
 function App() {
-  const { setCurrentLocation, currentLocation } = useContext(StateContext);
+  const {
+    setCurrentLocation,
+    currentLocation,
+    selectedCardId,
+    selectWeatherDay
+  } = useContext(StateContext);
   const [weatherData] = useFetchWeather(currentLocation);
-  const processedWeatherData = processWeatherData(weatherData.data);
 
   const handleCitySelection = selected => {
     setCurrentLocation(selected);
   };
 
   const handleCurrentDaySelection = id => {
-    // eslint-disable-next-line no-console
-    console.log('id', id);
+    selectWeatherDay(id);
   };
 
   return (
     <LayoutContainer>
       <DropDown onChange={handleCitySelection} />
       <FlexRow paddingTop="2.5rem">
-        {Object.values(processedWeatherData).map(weatherItem => {
+        {Object.values(weatherData.data).map((weatherItem, index) => {
           return (
             <Card
               key={weatherItem.id}
               id={weatherItem.id}
+              isSelected={
+                selectedCardId === weatherItem.id || selectedCardId === index
+              }
               day={weatherItem.day}
               temp={weatherItem.temp}
               desc={weatherItem.weather.description}
