@@ -1,10 +1,15 @@
-import { useContext, useEffect } from 'react';
-
-import StateContext from 'providers/StateContext';
+import { useEffect, useContext } from 'react';
 import axios from 'axios';
 
+import StateContext from 'providers/StateContext';
+
 const useFetchWeatherData = location => {
-  const { setWeatherData, weatherData } = useContext(StateContext);
+  const {
+    initWeatherDataReq,
+    setWeatherError,
+    setWeatherData,
+    weatherData
+  } = useContext(StateContext);
   const { coords } = location;
   useEffect(() => {
     let didCancel = false;
@@ -18,6 +23,7 @@ const useFetchWeatherData = location => {
     };
 
     const fetchData = async () => {
+      initWeatherDataReq();
       try {
         const url = getWeatherPrognosisUrl(lng, lat);
         const result = await axios.get(url);
@@ -26,7 +32,7 @@ const useFetchWeatherData = location => {
         }
       } catch (err) {
         if (!didCancel) {
-          setWeatherData({});
+          setWeatherError();
         }
       }
     };
@@ -36,7 +42,8 @@ const useFetchWeatherData = location => {
       didCancel = true;
       return didCancel;
     };
-  }, [coords, location, location.value, setWeatherData]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.value]);
   return [weatherData];
 };
 

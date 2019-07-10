@@ -12,12 +12,12 @@ import FlexRow from 'layout/FlexRow';
 import processWeatherData from 'utils/processWeatherData';
 
 function App() {
-  const { setLocation, currentLocation } = useContext(StateContext);
+  const { setCurrentLocation, currentLocation } = useContext(StateContext);
   const [weatherData] = useFetchWeather(currentLocation);
-  const processedWeatherData = processWeatherData(weatherData);
+  const processedWeatherData = processWeatherData(weatherData.data);
 
   const handleCitySelection = selected => {
-    setLocation(selected);
+    setCurrentLocation(selected);
   };
 
   const handleCurrentDaySelection = id => {
