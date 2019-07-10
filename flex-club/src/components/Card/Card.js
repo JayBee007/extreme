@@ -10,14 +10,14 @@ import CardContainer from './CardContainer';
 import Text from './Text';
 
 const Card = props => {
-  const { theme, day, temp, desc, onClick, id } = props;
+  const { theme, day, temp, desc, onClick, id, isSelected } = props;
 
   const handleClick = () => {
-    onClick(id)
-  }
+    onClick(id);
+  };
 
   return (
-    <CardContainer onClick={handleClick}>
+    <CardContainer onClick={handleClick} isSelected={isSelected}>
       <Text>{day}</Text>
       <CloudDrizzle
         fill={theme.colors.primary}
@@ -30,6 +30,5 @@ const Card = props => {
     </CardContainer>
   );
 };
-
 
 export default withTheme(Card);
