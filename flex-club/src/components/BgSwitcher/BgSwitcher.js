@@ -1,4 +1,3 @@
-/* eslint-disable no-debugger */
 import styled from 'styled-components';
 
 const bg = (deg, lum) => `${deg}, 100%, ${lum}, 0.1`;
@@ -11,7 +10,7 @@ const bgColor = props => {
 
   const timeToSunset = sunset.getHours() - dt.getHours();
   const percentageOfDayPassed = ((dayTime - timeToSunset) / dayTime) * 100;
-  // debugger;
+
   if (percentageOfDayPassed <= 20) {
     computedBgColor = bg(213, '79%');
   }

@@ -1,4 +1,3 @@
-/* eslint-disable no-debugger */
 import { useEffect, useContext } from 'react';
 import axios from 'axios';
 

@@ -4,23 +4,39 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import { withTheme } from 'styled-components';
+import Loadable from 'react-loadable';
 
-import CloudDrizzle from 'components/Icons/Drizzle';
 import CardContainer from './CardContainer';
 import Text from './Text';
 
 const Card = props => {
-  const { theme, day, temp, desc, onClick, id, isSelected } = props;
+  const {
+    theme,
+    day,
+    temp,
+    desc,
+    onClick,
+    id,
+    isSelected,
+    main,
+    isNight
+  } = props;
 
   const handleClick = () => {
     onClick(id);
   };
+  const LoadableIcon = Loadable({
+    loader: () => import(`../Icons/${main}`),
+    loading() {
+      return <span />;
+    }
+  });
 
   return (
     <CardContainer onClick={handleClick} isSelected={isSelected}>
       <Text>{day}</Text>
-      <CloudDrizzle
-        fill={theme.colors.primary}
+      <LoadableIcon
+        fill={isNight ? theme.colors.secondary : theme.colors.primary}
         stroke="none"
         viewBox="28 30 50 50"
         style={{ marginBottom: '1.5rem' }}
