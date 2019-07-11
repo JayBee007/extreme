@@ -5,7 +5,7 @@
 import React from 'react';
 import { withTheme } from 'styled-components';
 
-import CloudDrizzle from 'components/Icons/CloudDrizzle';
+import CloudDrizzle from 'components/Icons/Drizzle';
 import CardContainer from './CardContainer';
 import Text from './Text';
 
