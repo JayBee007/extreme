@@ -3,8 +3,10 @@ import React, { useContext } from 'react';
 import StateContext from 'providers/StateContext';
 import useFetchWeather from 'hooks/useFetchWeatherData';
 
+import BgSwticher from 'components/BgSwitcher';
 import DropDown from 'components/DropDown';
 import Card from 'components/Card';
+import LineChart from 'components/LineChart';
 
 import LayoutContainer from 'layout/LayoutContainer';
 import FlexRow from 'layout/FlexRow';
@@ -14,8 +16,11 @@ function App() {
     setCurrentLocation,
     currentLocation,
     selectedCardId,
-    selectWeatherDay
+    selectWeatherDay,
+    chartData,
+    currentWeatherData
   } = useContext(StateContext);
+
   const [weatherData] = useFetchWeather(currentLocation);
 
   const handleCitySelection = selected => {
@@ -26,27 +31,40 @@ function App() {
     selectWeatherDay(id);
   };
 
+  const selectChartData = chartData.filter(
+    chartItem => chartItem.id === selectedCardId
+  );
+
   return (
-    <LayoutContainer>
-      <DropDown onChange={handleCitySelection} />
-      <FlexRow paddingTop="2.5rem">
-        {Object.values(weatherData.data).map((weatherItem, index) => {
-          return (
-            <Card
-              key={weatherItem.id}
-              id={weatherItem.id}
-              isSelected={
-                selectedCardId === weatherItem.id || selectedCardId === index
-              }
-              day={weatherItem.day}
-              temp={weatherItem.temp}
-              desc={weatherItem.weather.description}
-              onClick={handleCurrentDaySelection}
-            />
-          );
-        })}
-      </FlexRow>
-    </LayoutContainer>
+    <BgSwticher {...currentWeatherData}>
+      <LayoutContainer>
+        <DropDown onChange={handleCitySelection} />
+        <FlexRow paddingTop="2.5rem">
+          {Object.values(weatherData.data).map((weatherItem, index) => {
+            return (
+              <Card
+                key={weatherItem.id}
+                id={weatherItem.id}
+                isSelected={
+                  selectedCardId === weatherItem.id || selectedCardId === index
+                }
+                day={weatherItem.day}
+                temp={weatherItem.temp}
+                desc={weatherItem.weather.description}
+                onClick={handleCurrentDaySelection}
+              />
+            );
+          })}
+        </FlexRow>
+        <FlexRow paddingTop="2.5rem">
+          {selectChartData.length > 0 ? (
+            <LineChart data={selectChartData[0].data} />
+          ) : (
+            chartData.length > 0 && <LineChart data={chartData[0].data} />
+          )}
+        </FlexRow>
+      </LayoutContainer>
+    </BgSwticher>
   );
 }
 

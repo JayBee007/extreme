@@ -1,16 +1,21 @@
+/* eslint-disable no-debugger */
 import { useEffect, useContext } from 'react';
 import axios from 'axios';
 
 import StateContext from 'providers/StateContext';
 
-import getWeatherPrognosisUrl from 'utils/getWeatherPrognosisUrl';
+import getUrl from 'utils/getUrl';
 import processWeatherData from 'utils/processWeatherData';
+import proccessCurrentWeatherData from 'utils/proccessCurrentWeatherData';
+import getChartData from 'utils/getChartData';
 
 const useFetchWeatherData = location => {
   const {
     initWeatherDataReq,
     setWeatherError,
     setWeatherData,
+    setChartData,
+    setCurrentWeatherData,
     weatherData,
     selectWeatherDay
   } = useContext(StateContext);
@@ -18,7 +23,9 @@ const useFetchWeatherData = location => {
   useEffect(() => {
     let didCancel = false;
     if (location.coords === undefined) {
-      setWeatherData({});
+      setWeatherData();
+      setChartData();
+      setCurrentWeatherData();
       return;
     }
     const { lng, lat } = coords;
@@ -27,11 +34,20 @@ const useFetchWeatherData = location => {
       initWeatherDataReq();
       selectWeatherDay();
       try {
-        const url = getWeatherPrognosisUrl(lng, lat);
+        const url = getUrl('forecast', lng, lat);
+        const currentWeatherUrl = getUrl('weather', lng, lat);
         const result = await axios.get(url);
+        const currentWeather = await axios.get(currentWeatherUrl);
         const processedWeatherData = processWeatherData(result.data);
+        const proccessedCurrentWeatherData = proccessCurrentWeatherData(
+          currentWeather.data
+        );
+        const chartData = getChartData(result.data);
+
         if (!didCancel) {
+          setCurrentWeatherData(proccessedCurrentWeatherData);
           setWeatherData(processedWeatherData);
+          setChartData(chartData);
         }
       } catch (err) {
         if (!didCancel) {

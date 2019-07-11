@@ -11,10 +11,8 @@ import {
 } from 'recharts';
 import { withTheme } from 'styled-components';
 
-import data from './data';
-
 const CustomLineChart = props => {
-  const { theme } = props;
+  const { theme, data } = props;
   const renderDegree = (val, name) => {
     return `${val} °C`;
   };
@@ -31,7 +29,7 @@ const CustomLineChart = props => {
         bottom: 5
       }}
     >
-      <CartesianGrid vertical={false} stroke="#eef2f4" fill="none" />
+      <CartesianGrid vertical={false} stroke="#8d96b2" fill="none" />
       <XAxis axisLine={false} tickLine={false} dataKey="time" />
       <YAxis
         axisLine={false}
