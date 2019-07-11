@@ -1,5 +1,4 @@
-/* eslint-disable no-debugger */
-import { useEffect, useContext } from 'react';
+import { useEffect, useContext, useState } from 'react';
 import axios from 'axios';
 
 import StateContext from 'providers/StateContext';
@@ -8,6 +7,8 @@ import getUrl from 'utils/getUrl';
 import processWeatherData from 'utils/processWeatherData';
 import proccessCurrentWeatherData from 'utils/proccessCurrentWeatherData';
 import getChartData from 'utils/getChartData';
+
+import useInterval from './useInterval';
 
 const useFetchWeatherData = location => {
   const {
@@ -20,12 +21,14 @@ const useFetchWeatherData = location => {
     selectWeatherDay
   } = useContext(StateContext);
   const { coords } = location;
+  const [count, setCount] = useState(0);
+  useInterval(() => setCount(count + 1), 90000);
   useEffect(() => {
     let didCancel = false;
+    setChartData();
+    setCurrentWeatherData();
     if (location.coords === undefined) {
       setWeatherData();
-      setChartData();
-      setCurrentWeatherData();
       return;
     }
     const { lng, lat } = coords;
@@ -62,7 +65,7 @@ const useFetchWeatherData = location => {
       return didCancel;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location.value]);
+  }, [location.value, count]);
   return [weatherData];
 };
 

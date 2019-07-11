@@ -43,11 +43,13 @@ function App() {
           {Object.values(weatherData.data).map((weatherItem, index) => {
             return (
               <Card
+                isNight={currentWeatherData.isNight}
                 key={weatherItem.id}
                 id={weatherItem.id}
                 isSelected={
                   selectedCardId === weatherItem.id || selectedCardId === index
                 }
+                main={weatherItem.weather.main}
                 day={weatherItem.day}
                 temp={weatherItem.temp}
                 desc={weatherItem.weather.description}
