@@ -1,6 +1,7 @@
 const initialData = {
   currentLocation: '',
   selectedCardId: 0,
+  chartData: [],
   weatherData: {
     data: {},
     isLoading: false,

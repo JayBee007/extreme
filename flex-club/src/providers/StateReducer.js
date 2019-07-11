@@ -3,11 +3,17 @@ import {
   FIVE_DAY_ERROR,
   FIVE_DAY_REQUEST,
   FIVE_DAY_SUCCESS,
-  SELECT_WEATHER_DAY
+  SELECT_WEATHER_DAY,
+  SET_CHART_DATA
 } from './constants';
 
 const stateReducer = (state, action) => {
   switch (action.type) {
+    case SET_CHART_DATA:
+      return {
+        ...state,
+        chartData: action.payload.data
+      };
     case SELECT_WEATHER_DAY:
       return {
         ...state,

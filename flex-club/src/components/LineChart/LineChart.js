@@ -11,10 +11,8 @@ import {
 } from 'recharts';
 import { withTheme } from 'styled-components';
 
-import data from './data';
-
 const CustomLineChart = props => {
-  const { theme } = props;
+  const { theme, data } = props;
   const renderDegree = (val, name) => {
     return `${val} °C`;
   };
