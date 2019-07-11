@@ -29,7 +29,7 @@ const CustomLineChart = props => {
         bottom: 5
       }}
     >
-      <CartesianGrid vertical={false} stroke="#eef2f4" fill="none" />
+      <CartesianGrid vertical={false} stroke="#8d96b2" fill="none" />
       <XAxis axisLine={false} tickLine={false} dataKey="time" />
       <YAxis
         axisLine={false}

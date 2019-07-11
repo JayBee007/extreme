@@ -6,7 +6,8 @@ import {
   FIVE_DAY_REQUEST,
   FIVE_DAY_ERROR,
   SELECT_WEATHER_DAY,
-  SET_CHART_DATA
+  SET_CHART_DATA,
+  SELECT_CURRENT_WEATHER
 } from './constants';
 
 import StateContext from './StateContext';
@@ -19,7 +20,13 @@ const StateProvider = props => {
 
   const [state, dispatch] = useReducer(stateReducer, initialData);
 
-  const { weatherData, currentLocation, selectedCardId, chartData } = state;
+  const {
+    weatherData,
+    currentLocation,
+    selectedCardId,
+    chartData,
+    currentWeatherData
+  } = state;
 
   const setCurrentLocation = location => {
     dispatch({
@@ -65,6 +72,15 @@ const StateProvider = props => {
     });
   };
 
+  const setCurrentWeatherData = (data = {}) => {
+    dispatch({
+      type: SELECT_CURRENT_WEATHER,
+      payload: {
+        data
+      }
+    });
+  };
+
   return (
     <StateContext.Provider
       value={{
@@ -73,11 +89,13 @@ const StateProvider = props => {
         setWeatherData,
         setCurrentLocation,
         setChartData,
+        setCurrentWeatherData,
         selectWeatherDay,
         currentLocation,
         weatherData,
         chartData,
-        selectedCardId
+        selectedCardId,
+        currentWeatherData
       }}
     >
       {children}

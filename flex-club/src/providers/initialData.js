@@ -2,6 +2,7 @@ const initialData = {
   currentLocation: '',
   selectedCardId: 0,
   chartData: [],
+  currentWeatherData: {},
   weatherData: {
     data: {},
     isLoading: false,
