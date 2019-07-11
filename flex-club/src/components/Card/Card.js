@@ -25,6 +25,8 @@ const Card = props => {
   const handleClick = () => {
     onClick(id);
   };
+
+  // TODO: how to unmount dynamically loaded components
   const LoadableIcon = Loadable({
     loader: () => import(`../Icons/${main}`),
     loading() {
