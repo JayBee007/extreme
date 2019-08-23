@@ -8,6 +8,7 @@ const StyledTextInput = styled.TextInput`
   padding: 5px 10px;
   max-width: 48px;
   align-self: center;
+  margin-bottom: 15px;
 `;
 
 export default StyledTextInput;
