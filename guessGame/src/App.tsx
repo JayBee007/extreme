@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 import Home from './screens/Home';
+import Game from './screens/Game';
 
-const App = () => {
+const AppNavigator = createStackNavigator({
+  Home: {
+    screen: Home,
+  },
+  Game: {
+    screen: Game,
+  },
+});
 
-    return (
-      <Home />
-    );
-}
-
-export default App;
+export default createAppContainer(AppNavigator);

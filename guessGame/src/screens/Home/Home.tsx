@@ -24,7 +24,7 @@ const ButtonView = styled.View`
   background: ${({ background }: { background: string }) => background};
 `;
 
-const Home = () => {
+const Home = props => {
   const [inputText, setInputText] = useState('');
   const [isConfirmed, setIsConfirmed] = useState(false);
   const [confirmedNumber, setConfirmedNumber] = useState();
@@ -52,6 +52,10 @@ const Home = () => {
     setConfirmedNumber(parseText);
     setIsConfirmed(true);
     Keyboard.dismiss();
+  };
+
+  const handleNavigation = () => {
+    props.navigation.navigate('Game');
   };
 
   return (
@@ -123,13 +127,17 @@ const Home = () => {
                   {confirmedNumber}
                 </Text>
               </Container>
-              <Button title="Start Game" onPress={() => {}} />
+              <Button title="Start Game" onPress={handleNavigation} />
             </Card>
           </Container>
         ) : null}
       </Container>
     </TouchableWithoutFeedback>
   );
+};
+
+Home.navigationOptions = {
+  header: null,
 };
 
 export default Home;
