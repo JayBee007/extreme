@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
-import { Button, Platform } from 'react-native';
+import { Button, Platform, Alert } from 'react-native';
 
 import Container from '../../components/Container';
 import Text from '../../components/Text';
@@ -21,7 +21,35 @@ const ButtonView = styled.View`
 const Game = props => {
   const { navigation } = props;
   const number = navigation.getParam('number');
-  const guess = generateRandomNumber(1, 100, props.number);
+  const currentLow = useRef(1);
+  const currentHigh = useRef(100);
+
+  const [currentGuess, setCurrrentGuess] = useState(
+    generateRandomNumber(1, 100, number)
+  );
+
+  const nextGuess = (direction: string) => () => {
+    const isNotLow = direction === 'lower' && currentGuess < number;
+    const isNotHigh = direction === 'greater' && currentGuess > number;
+
+    if (isNotLow || isNotLow) {
+      Alert.alert(
+        'Wrong choice',
+        `Wrong action, your choice is not ${direction} than your chosen number`,
+        [{ text: 'Cancel', style: 'cancel' }]
+      );
+      return;
+    }
+
+    if (direction === 'lower') {
+      currentHigh.current = currentGuess;
+    } else {
+      currentLow.current = currentGuess;
+    }
+
+    const nextGuess = generateRandomNumber(currentLow.current, currentHigh.current, currentGuess);
+    setCurrrentGuess(nextGuess);
+  };
   return (
     <Container padding={10}>
       <Card elevation={5}>
@@ -37,7 +65,7 @@ const Game = props => {
             }}
           >
             <Text textAlign="center" fontSize={42}>
-              {guess}
+              {currentGuess}
             </Text>
           </Container>
         </Container>
@@ -45,14 +73,14 @@ const Game = props => {
           <ButtonView background="#E53E3E">
             <Button
               title="Lower"
-              onPress={() => {}}
+              onPress={nextGuess('lower')}
               color={Platform.OS === 'ios' ? '#fff' : '#E53E3E'}
             />
           </ButtonView>
           <ButtonView background="#68D391">
             <Button
               title="Greater"
-              onPress={() => {}}
+              onPress={nextGuess('greater')}
               color={Platform.OS === 'ios' ? '#fff' : '#68D391'}
             />
           </ButtonView>
