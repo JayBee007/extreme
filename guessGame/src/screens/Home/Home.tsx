@@ -51,6 +51,7 @@ const Home = () => {
 
     setConfirmedNumber(parseText);
     setIsConfirmed(true);
+    Keyboard.dismiss();
   };
 
   return (
@@ -100,8 +101,29 @@ const Home = () => {
         </Container>
         {isConfirmed && confirmedNumber ? (
           <Container padding={10}>
-            <Card>
-              <Text>{confirmedNumber}</Text>
+            <Card
+              elevation={5}
+              style={{
+                alignItems: 'center',
+              }}
+            >
+              <Text textAlign="center" style={{ marginBottom: 15 }}>
+                You selected:
+              </Text>
+              <Container
+                padding={10}
+                style={{
+                  borderRadius: 5,
+                  borderWidth: 1,
+                  borderColor: '#5A67D8',
+                  marginBottom: 15,
+                }}
+              >
+                <Text textAlign="center" fontSize={42}>
+                  {confirmedNumber}
+                </Text>
+              </Container>
+              <Button title="Start Game" onPress={() => {}} />
             </Card>
           </Container>
         ) : null}
