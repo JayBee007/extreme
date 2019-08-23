@@ -55,7 +55,9 @@ const Home = props => {
   };
 
   const handleNavigation = () => {
-    props.navigation.navigate('Game');
+    props.navigation.navigate('Game', {
+      number: confirmedNumber,
+    });
   };
 
   return (
