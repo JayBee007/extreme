@@ -3,6 +3,7 @@ import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 import Home from './screens/Home';
 import Game from './screens/Game';
+import GameOver from './screens/GameOver';
 
 const AppNavigator = createStackNavigator({
   Home: {
@@ -10,6 +11,9 @@ const AppNavigator = createStackNavigator({
   },
   Game: {
     screen: Game,
+  },
+  GameOver: {
+    screen: GameOver,
   },
 });
 

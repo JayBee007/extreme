@@ -1,10 +1,11 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { Button, Platform, Alert } from 'react-native';
 
 import Container from '../../components/Container';
 import Text from '../../components/Text';
 import Card from '../../components/Card';
+import Header from '../../components/Header';
 
 import generateRandomNumber from '../../utils/generateRandomNumber';
 
@@ -28,6 +29,17 @@ const Game = props => {
     generateRandomNumber(1, 100, number)
   );
 
+  const [rounds, setRounds] = useState(0);
+
+  useEffect(() => {
+    if (currentGuess === number) {
+      props.navigation.navigate('GameOver', {
+        guessedNumber: currentGuess,
+        rounds,
+      });
+    }
+  }, [currentGuess, number]);
+
   const nextGuess = (direction: string) => () => {
     const isNotLow = direction === 'lower' && currentGuess < number;
     const isNotHigh = direction === 'greater' && currentGuess > number;
@@ -47,47 +59,59 @@ const Game = props => {
       currentLow.current = currentGuess;
     }
 
-    const nextGuess = generateRandomNumber(currentLow.current, currentHigh.current, currentGuess);
+    const nextGuess = generateRandomNumber(
+      currentLow.current,
+      currentHigh.current,
+      currentGuess
+    );
     setCurrrentGuess(nextGuess);
+    setRounds(prevRound => prevRound + 1);
   };
   return (
-    <Container padding={10}>
-      <Card elevation={5}>
-        <Container style={{ alignItems: 'center', marginBottom: 15 }}>
-          <Text style={{ marginBottom: 15 }}>Computer's Guess</Text>
-          <Container
-            padding={10}
-            style={{
-              borderRadius: 5,
-              borderWidth: 1,
-              borderColor: '#5A67D8',
-              marginBottom: 15,
-            }}
-          >
-            <Text textAlign="center" fontSize={42}>
-              {currentGuess}
-            </Text>
+    <Container>
+      <Header title="Guess the number" />
+      <Container padding={10}>
+        <Card elevation={5}>
+          <Container style={{ alignItems: 'center', marginBottom: 15 }}>
+            <Text style={{ marginBottom: 15 }}>Computer's Guess</Text>
+            <Container
+              padding={10}
+              style={{
+                borderRadius: 5,
+                borderWidth: 1,
+                borderColor: '#5A67D8',
+                marginBottom: 15,
+              }}
+            >
+              <Text textAlign="center" fontSize={42}>
+                {currentGuess}
+              </Text>
+            </Container>
           </Container>
-        </Container>
-        <StyledRowView>
-          <ButtonView background="#E53E3E">
-            <Button
-              title="Lower"
-              onPress={nextGuess('lower')}
-              color={Platform.OS === 'ios' ? '#fff' : '#E53E3E'}
-            />
-          </ButtonView>
-          <ButtonView background="#68D391">
-            <Button
-              title="Greater"
-              onPress={nextGuess('greater')}
-              color={Platform.OS === 'ios' ? '#fff' : '#68D391'}
-            />
-          </ButtonView>
-        </StyledRowView>
-      </Card>
+          <StyledRowView>
+            <ButtonView background="#E53E3E">
+              <Button
+                title="Lower"
+                onPress={nextGuess('lower')}
+                color={Platform.OS === 'ios' ? '#fff' : '#E53E3E'}
+              />
+            </ButtonView>
+            <ButtonView background="#68D391">
+              <Button
+                title="Greater"
+                onPress={nextGuess('greater')}
+                color={Platform.OS === 'ios' ? '#fff' : '#68D391'}
+              />
+            </ButtonView>
+          </StyledRowView>
+        </Card>
+      </Container>
     </Container>
   );
+};
+
+Game.navigationOptions = {
+  header: null,
 };
 
 export default Game;
