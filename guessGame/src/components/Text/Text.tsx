@@ -7,6 +7,7 @@ const StyledText = styled.Text`
   font-weight: ${({ fontWeight }: { fontWeight: number }) => fontWeight || 400};
   color: ${({ color }: { color: string }) => color || 'black'};
   text-align: ${({ textAlign }: { textAlign: string }) => textAlign || 'left'};
+  font-family: "OpenSans-Bold";
 `;
 
 export default StyledText;

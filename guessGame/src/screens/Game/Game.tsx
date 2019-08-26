@@ -38,13 +38,13 @@ const Game = props => {
         rounds,
       });
     }
-  }, [currentGuess, number]);
+  }, [currentGuess, number, props.navigation, rounds]);
 
   const nextGuess = (direction: string) => () => {
     const isNotLow = direction === 'lower' && currentGuess < number;
     const isNotHigh = direction === 'greater' && currentGuess > number;
 
-    if (isNotLow || isNotLow) {
+    if (isNotLow || isNotHigh) {
       Alert.alert(
         'Wrong choice',
         `Wrong action, your choice is not ${direction} than your chosen number`,
