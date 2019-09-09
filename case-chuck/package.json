@@ -70,7 +70,7 @@
   },
   "dependencies": {
     "@loadable/component": "^5.6.1",
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.6",
     "color": "^3.1.0",
