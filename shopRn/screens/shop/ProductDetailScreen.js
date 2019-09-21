@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {Image, View} from 'react-native';
+import {Container, Content, Text, Button} from 'native-base';
 import {useSelector} from 'react-redux';
 
 const ProductDetailScreen = props => {
@@ -7,10 +8,34 @@ const ProductDetailScreen = props => {
   const product = useSelector(state =>
     state.products.availableProducts.find(prod => prod.id === productId)
   );
+
   return (
-    <View>
-      <Text>ProductDetailScreen - {product.title}</Text>
-    </View>
+    <Container>
+      <Content>
+        <Image
+          source={{uri: product.imageUrl}}
+          style={{height: 200, flex: 1}}
+        />
+        <Container
+          style={{
+            alignItems: 'center',
+            marginTop: 10
+          }}>
+          <Button style={{marginBottom: 10}}>
+            <Text>Add to cart</Text>
+          </Button>
+          <Text note>${product.price.toFixed(2)}</Text>
+          <View
+            style={{
+              textAlign: 'center',
+              marginHorizontal: 20,
+              marginVertical: 20
+            }}>
+            <Text>{product.description}</Text>
+          </View>
+        </Container>
+      </Content>
+    </Container>
   );
 };
 
