@@ -3,7 +3,11 @@ import {Image} from 'react-native';
 import {Content, Card, CardItem, Text, Left, Button, Right} from 'native-base';
 
 const ProductItem = props => {
-  const {imageUrl, title, price} = props;
+  const {imageUrl, title, price, onViewDetail} = props;
+
+  const navigateToDetails = () => {
+    onViewDetail();
+  };
 
   return (
     <Content padder>
@@ -17,7 +21,7 @@ const ProductItem = props => {
         </CardItem>
         <CardItem>
           <Left>
-            <Button>
+            <Button onPress={navigateToDetails}>
               <Text>View Details</Text>
             </Button>
           </Left>

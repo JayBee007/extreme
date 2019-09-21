@@ -1,6 +1,5 @@
 import React from 'react';
 import {FlatList} from 'react-native';
-import {Container} from 'native-base';
 import {useSelector} from 'react-redux';
 
 import ProductItem from '../../components/shop/ProductItem';
@@ -16,6 +15,12 @@ const ProductOverviewScreen = props => {
           imageUrl={item.imageUrl}
           title={item.title}
           price={item.price}
+          onViewDetail={() => {
+            props.navigation.navigate('ProductDescription', {
+              productId: item.id,
+              productTitle: item.title
+            });
+          }}
         />
       )}
     />
@@ -23,7 +28,7 @@ const ProductOverviewScreen = props => {
 };
 
 ProductOverviewScreen.navigationOptions = {
-  title: 'All Products',
+  title: 'All Products'
 };
 
 export default ProductOverviewScreen;
