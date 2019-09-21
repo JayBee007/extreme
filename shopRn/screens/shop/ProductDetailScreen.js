@@ -22,16 +22,18 @@ const ProductDetailScreen = props => {
             marginTop: 10
           }}>
           <Button style={{marginBottom: 10}}>
-            <Text>Add to cart</Text>
+            <Text style={{fontFamily: 'OpenSans'}}>Add to cart</Text>
           </Button>
-          <Text note>${product.price.toFixed(2)}</Text>
+          <Text note style={{fontFamily: 'OpenSans-Bold'}}>
+            ${product.price.toFixed(2)}
+          </Text>
           <View
             style={{
               textAlign: 'center',
               marginHorizontal: 20,
               marginVertical: 20
             }}>
-            <Text>{product.description}</Text>
+            <Text style={{fontFamily: 'OpenSans'}}>{product.description}</Text>
           </View>
         </Container>
       </Content>
