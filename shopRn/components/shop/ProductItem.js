@@ -3,7 +3,7 @@ import {Image} from 'react-native';
 import {Content, Card, CardItem, Text, Left, Button, Right} from 'native-base';
 
 const ProductItem = props => {
-  const {imageUrl, title, price, onViewDetail} = props;
+  const {imageUrl, title, price, onViewDetail, onAddToCart} = props;
 
   const navigateToDetails = () => {
     onViewDetail();
@@ -30,7 +30,7 @@ const ProductItem = props => {
             </Button>
           </Left>
           <Right>
-            <Button>
+            <Button onPress={onAddToCart}>
               <Text style={{fontFamily: 'OpenSans'}}>To Cart</Text>
             </Button>
           </Right>
