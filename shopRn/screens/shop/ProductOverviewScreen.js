@@ -43,7 +43,7 @@ ProductOverviewScreen.navigationOptions = navData => ({
       <Item
         onPress={() => {
           navData.navigation.navigate('Cart');
-        ;}}
+        }}
         title="Cart"
         iconName={Platform.OS === 'android' ? 'md-cart' : 'ios-cart'}
       />
