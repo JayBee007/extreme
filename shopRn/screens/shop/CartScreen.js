@@ -8,9 +8,13 @@ import {
   Row,
   Text,
   Button,
-  Col
+  Col,
+  List
 } from 'native-base';
 import {useSelector} from 'react-redux';
+
+import CartItem from '../../components/shop/CartItem';
+
 const CartScreen = props => {
   const totalCartAmt = useSelector(state => state.cart.totalAmount);
   const cartItems = useSelector(state => {
@@ -51,6 +55,11 @@ const CartScreen = props => {
             </Grid>
           </CardItem>
         </Card>
+        <List
+          dataArray={cartItems}
+          keyExtractor={item => item.productId}
+          renderItem={({item, index}) => <CartItem productItem={item} />}
+        />
       </Content>
     </Container>
   );
