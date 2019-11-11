@@ -29,7 +29,9 @@ const CartScreen = props => {
         sum
       });
     }
-    return transformedItems;
+    return transformedItems.sort((a, b) =>
+      a.productId > b.productId ? 1 : -1
+    );
   });
   return (
     <Container>
