@@ -1,9 +1,13 @@
 import React from 'react';
 import {View} from 'react-native';
+import {useDispatch} from 'react-redux';
 import {ListItem, Text, Badge, Left, Right, Icon} from 'native-base';
 
+import {removeFromCart} from '../../store/actions/cart.action';
+
 const CartItem = props => {
-  const {quantity, productTitle, sum} = props.productItem;
+  const {quantity, productTitle, sum, productId} = props.productItem;
+  const dispatch = useDispatch();
   return (
     <ListItem>
       <Left>
@@ -17,7 +21,12 @@ const CartItem = props => {
           <Text style={{fontFamily: 'OpenSans-Bold', marginRight: 10}}>
             ${sum}
           </Text>
-          <Icon type="Ionicons" name="trash" style={{color: 'red'}} />
+          <Icon
+            onPress={() => dispatch(removeFromCart(productId))}
+            type="Ionicons"
+            name="trash"
+            style={{color: 'red'}}
+          />
         </View>
       </Right>
     </ListItem>
