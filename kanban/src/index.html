@@ -9,9 +9,9 @@
 </head>
 
 <body>
-  <div class="h-screen flex">
+  <div class="h-screen flex overflow-hidden">
     <!-- sidebar -->
-    <div class="w-64 bg-gray-100 border-r px-6 py-4">
+    <div class="w-64 bg-gray-100 border-r px-6 py-4 overflow-auto">
       <img class="h-12 w-12 mb-8" src="https://www.stickpng.com/assets/images/58482d7fcef1014c0b5e4a5a.png" />
       <nav>
         <div class="mb-8">
@@ -72,8 +72,8 @@
       </nav>
     </div>
     <!-- end sidebar -->
-    <div class="flex-1 min-w-0 bg-white">
-      <div class="border-b-2 border-gray-200">
+    <div class="flex-1 min-w-0 flex flex-col bg-white">
+      <div class="flex-shrink-0 border-b-2 border-gray-200">
         <header class="px-6">
           <div class="flex justify-between items-center py-3 border-b border-gray-200">
             <div class="flex-1">
@@ -98,7 +98,7 @@
               </button>
               <button>
                 <img class="h-10 w-10 rounded-full object-cover"
-                  src="https://lh3.google.com/u/0/d/1zR5KfP-XAvEeMsjiQey8TXjCLyqrE_h1=w400-h380-p-k-nu-iv1" />
+                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=144&q=144" />
               </button>
             </div>
           </div>
@@ -107,16 +107,16 @@
               <h2 class="text-2xl font-semibold text-gray-900 leading-tight mr-6">All Issues</h2>
               <div class="flex">
                 <span class="rounded-full border-2 border-white"><img class="h-6 w-6 rounded-full object-cover"
-                    src="https://lh3.google.com/u/0/d/1c_n2WK2sRG_nGkH-Im4cGN_tHxNjv9B5=w400-h380-p-k-nu-iv1"
+                    src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2"
                     alt=""></span>
                 <span class="-ml-2 rounded-full border-2 border-white"><img class="h-6 w-6 rounded-full object-cover"
-                    src="https://lh3.google.com/u/0/d/1WuhhJxQ87mIIMHw46agw-bMl6mzvLiMU=w400-h380-p-k-nu-iv1"
+                    src="https://images.unsplash.com/photo-1486074051793-e41332bf18fc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2"
                     alt=""></span>
                 <span class="-ml-2 rounded-full border-2 border-white"><img class="h-6 w-6 rounded-full object-cover"
-                    src="https://lh3.google.com/u/0/d/1sGWfpNZTDn88eiN8P_a8kvPNN54La9S6=w400-h380-p-k-nu-iv1"
+                    src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2"
                     alt=""></span>
                 <span class="-ml-2 rounded-full border-2 border-white"><img class="h-6 w-6 rounded-full object-cover"
-                    src="https://lh3.google.com/u/0/d/1KHrW-jkHNRoOMnmkbu8ECPCmXVZBT11F=w400-h380-p-k-nu-iv1"
+                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2"
                     alt=""></span>
               </div>
             </div>
@@ -146,7 +146,737 @@
           </div>
         </header>
       </div>
-      <div></div>
+      <div class="flex-1 overflow-auto">
+        <main class="p-3 inline-flex overflow-auto">
+          <div class="p-3 bg-gray-100 rounded mr-2 flex-shrink-0" style="width: 20rem">
+            <h3 class="text-sm font-medium text-gray-900 mb-2">Backlog</h3>
+            <ul>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+            </ul>
+          </div>
+          <div class="p-3 bg-gray-100 rounded mr-2 flex-shrink-0" style="width: 20rem">
+            <h3 class="text-sm font-medium text-gray-900 mb-2">Backlog</h3>
+            <ul>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+            </ul>
+          </div>
+          <div class="p-3 bg-gray-100 rounded mr-2 flex-shrink-0" style="width: 20rem">
+            <h3 class="text-sm font-medium text-gray-900 mb-2">Backlog</h3>
+            <ul>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+            </ul>
+          </div>
+          <div class="p-3 bg-gray-100 rounded mr-2 flex-shrink-0" style="width: 20rem">
+            <h3 class="text-sm font-medium text-gray-900 mb-2">Backlog</h3>
+            <ul>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+            </ul>
+          </div>
+          <div class="p-3 bg-gray-100 rounded mr-2 flex-shrink-0" style="width: 20rem">
+            <h3 class="text-sm font-medium text-gray-900 mb-2">Backlog</h3>
+            <ul>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+            </ul>
+          </div>
+          <div class="p-3 bg-gray-100 rounded mr-2 flex-shrink-0" style="width: 20rem">
+            <h3 class="text-sm font-medium text-gray-900 mb-2">Backlog</h3>
+            <ul>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+              <li class="mb-2"><a href="#" class="block p-5 rounded shadow bg-white leading-snug">
+                <div class="flex justify-between mb-2">
+                  <p class="text-sm font-medium text-gray-900">Add discount code to checkout page</p>
+                  <span><img class="rounded-full h-6 w-6 object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&w=144&q=144&facepad=2" /></span>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <time class="text-sm text-gray-600">14 Sep</time>
+                  <div>
+                    <span class="px-2 py-2 leading-none bg-teal-100 inline-flex items-center rounded">
+                      <svg class="mr-2 h-2 w-2 text-teal-500" viewBox="0 0 8 8" fill="currentColor">
+                        <circle cx="4" cy="4" r="3" />
+                      </svg>
+                      <span class="text-sm font-medium text-teal-900 ">Feature Request</span>
+                    </span>
+                  </div>
+                </div>
+              </a></li>
+            </ul>
+          </div>
+        </main>
+      </div>
     </div>
   </div>
 </body>
